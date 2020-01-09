@@ -1,0 +1,60 @@
+html{
+    background-color: aliceblue;
+    max-width: 75rem;
+    margin: auto;
+}
+
+header{
+    background-color: rgba(75, 80, 145, 0.562);
+}
+
+header h1{
+    font-size: 3.6rem;
+    font-family: 'Slabo 27px', serif;
+    margin-left: 2%;
+}
+
+#projects{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(33%, 1fr));
+    grid-gap: auto;
+    width: 100%;
+    margin-bottom: 2rem;
+    
+}
+
+#projects h1{
+    margin-left: 2%;
+}
+
+#projects a{
+    text-decoration: none;
+    color: black;
+    margin-left: 2%;
+}
+
+#projects figcaption{
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
+    padding: .5rem;
+    border: 2px dashed; 
+    background-color: rgba(211, 175, 15, 0.815);
+
+}
+
+#projects img{
+    max-width: 100%;
+}
+
+#projects figure{
+    border: 2px solid black;
+    margin: 0 auto;
+}
+
+.indent{
+    margin-left: 2%;
+}
+
+footer{
+    text-align: center;
+}
