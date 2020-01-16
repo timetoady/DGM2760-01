@@ -49,8 +49,14 @@ ul li:before {
 
 }
 
-main h1,
-h2 {
+main {
+    margin-left: 2%;
+}
+main h1 {
+    color: chocolate;
+    text-decoration: underline solid pink;
+}
+main h2 {
     color: #695b07
 }
 
