@@ -5,6 +5,7 @@ var Array1 = [
     'my dude',
     'good fellow'
 ]
+
 const noName = Array1[Math.floor(Math.random()*Array1.length)];
 function namer() {
   if (yourName !== null && yourName !== "") {
@@ -13,6 +14,7 @@ function namer() {
     return noName;
   }
 }
+
 document.querySelector("#company").innerText = "Joe's Bed n' Breakfast";
 document.querySelector("header > h2").innerText =
   "The Place to Sleep... and Eat Breakfast";
