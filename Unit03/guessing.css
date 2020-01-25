@@ -1,0 +1,141 @@
+html {
+    max-width: 75rem;
+    margin: auto;
+}
+
+/* Header settings */
+header {
+    background-image: linear-gradient(#003f9233, #0202024d, transparent), url("/Unit03/assets/playgame.jpg");
+    background-size: cover;
+    margin: auto;
+    padding: 2rem;
+    color: aliceblue;
+    box-shadow: 0px 10px 20px -5px rgba(0, 0, 0, .8);
+
+}
+
+header h1 {
+    margin-bottom: 0;
+    font-size: 3rem;
+
+}
+
+header h2 {
+    margin-top: 0;
+    color: aliceblue;
+    font-size: 2rem;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li:before {
+    content: '';
+    display: inline-block;
+    height: 12px;
+    width: 10px;
+    background-size: 10px;
+    background-image: url("/Unit02/assets/checkedbox.png");
+    background-repeat: no-repeat;
+    margin-right: 5px;
+
+}
+
+main {
+    margin-left: 2%;
+}
+
+main h1 {
+    color: rgb(12, 25, 216);
+
+}
+
+main h2 {
+    color: #07276e
+}
+
+footer {
+    text-align: center;
+    color: white;
+    background-color: #051d5e;
+}
+
+/* Guessing game settings */
+
+#gameBoard {
+    background-color: #0000A8;
+    display: flex;
+    min-height: 12rem;
+    border: double aliceblue 8px;
+    font-family: 'Inconsolata', monospace;
+    color: aliceblue;
+}
+
+#gameBoard h2 {
+    border-top: double aliceblue;
+    border-bottom: double aliceblue;
+    background-color: aliceblue;
+    color: #0000A8;
+    margin: .2rem;
+}
+
+#gameBoard button,
+input {
+    padding: .5rem;
+    border: double aliceblue 4px;
+    background-color: #0000A8;
+    color: aliceblue;
+    font-family: 'Inconsolata', monospace;
+    font-size: 1.5rem;
+
+}
+
+#gameBoard button {
+    width: 30%;
+    min-width: 100px;
+}
+
+#gameBoard input {
+    width: 25%;
+    min-width: 10px;
+    margin: .5rem;
+}
+
+.gb2 {
+    min-width: 10%;
+    text-align: center;
+}
+
+#attempts {
+    font-size: 5rem;
+}
+
+#feedback {
+    text-align: left;
+}
+
+.gb1 {
+    min-width: 40%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.gb3 {
+    min-width: 25%;
+    text-align: center;
+}
+
+.gb4 {
+    min-width: 25%;
+    text-align: center;
+}
+
+.gb4 img {
+    object-fit: contain;
+}
+
+
+/* For non phones */
+@media (min-width: 600px) {}
