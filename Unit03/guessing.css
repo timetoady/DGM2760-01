@@ -98,7 +98,7 @@ input {
 
 #gameBoard input {
     width: 25%;
-    min-width: 10px;
+    min-width: 30px;
     margin: .5rem;
 }
 
@@ -133,9 +133,58 @@ input {
 }
 
 .gb4 img {
-    object-fit: contain;
+    object-fit: cover;
+    width: 100%;
 }
 
 
-/* For non phones */
-@media (min-width: 600px) {}
+
+
+
+@media (max-width: 1024px) and (min-width: 601px) {
+    .gb1{
+        min-width: 22%;
+        
+    }
+    #gameBoard {
+        margin: 0 auto;
+
+    }
+    #gameBoard h2 {
+        font-size: 1.6rem;
+    }
+
+    #attempts {
+        font-size: 3rem;
+    }
+    #feedback {
+        font-size: 1rem;
+    }
+    .gb2{
+        min-width: 20%;
+    }
+}
+
+@media (max-width: 600px) {
+    .gb1{
+        min-width: 21%;
+        
+    }
+    #gameBoard {
+        margin: 0 auto;
+
+    }
+    #gameBoard h2 {
+        font-size: 1rem;
+    }
+
+    #attempts {
+        font-size: 3rem;
+    }
+    #feedback {
+        font-size: .5rem;
+    }
+    .gb2{
+        min-width: 25.9%;
+    }
+}
