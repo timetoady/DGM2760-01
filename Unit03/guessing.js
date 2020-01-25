@@ -29,7 +29,7 @@ function evalGuess() {
         award.src = "/Unit03/assets/FirstPlacemdpi.png";
         award.alt = "First place!";
         results.innerText =
-          "Congradulations! You've managed to guess the correct number on the first guess. Your exploits will go down in history, and bards will sing songs of your excellence forever. Consider yourself a hero.";
+          "Congradulations! You've managed to guess the correct number on the first try. Your exploits will go down in history, and bards will sing songs of your excellence forever. Consider yourself a hero.";
         break;
       case 2:
       case 3:
