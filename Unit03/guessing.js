@@ -66,6 +66,7 @@ function evalGuess() {
         buttonStop.remove();
         break;
     }
+    //Conditional statements give hints and prevent out-of-range guesses
   } else if (gamerGuess < 1 || gamerGuess > 15) {
     results.innerText = "Please select a number between 1 and 15.";
   } else if (gamerGuess > number) {
