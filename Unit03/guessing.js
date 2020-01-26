@@ -20,12 +20,14 @@ let buttonStop = document.querySelector("#thebutton");
 //function to do guessing game
 function evalGuess() {
   gamerGuess = document.querySelector("#guess").value;
+
   const feedback = document.querySelector("#feedback");
   console.log(gamerGuess);
   console.log(`The correct number is ${number}`);
   if (gamerGuess == number) {
     totalGuesses++;
     attempts.innerText = totalGuesses;
+    //Switch to give approprate message and award
     switch (totalGuesses) {
       case 1:
         award.src = "/Unit03/assets/FirstPlacemdpi.png";
@@ -38,7 +40,7 @@ function evalGuess() {
       case 3:
         award.src = "/Unit03/assets/FirstPlacemdpi.png";
         award.alt = "First place!";
-        results.innerText = "Correct! You the Champ!";
+        results.innerText = `Correct! You the Champ! \n\n Got it in ${totalGuesses} guesses.`;
         buttonStop.remove();
         break;
       case 4:
@@ -46,7 +48,7 @@ function evalGuess() {
       case 6:
         award.src = "/Unit03/assets/2ndPlacemdpi.png";
         award.alt = "Second place!";
-        results.innerText = "Correct! Well done. Just short of greatness.";
+        results.innerText = `Correct! Well done. Just short of greatness. \n\n Got it in ${totalGuesses} guesses.`;
         buttonStop.remove();
         break;
       case 7:
@@ -54,15 +56,13 @@ function evalGuess() {
       case 9:
         award.src = "/Unit03/assets/3rdPlacemdpi.png";
         award.alt = "Third place!";
-        results.innerText =
-          "Correct! But you can do better! Refresh to try again!";
+        results.innerText = `Correct! But you can do better! Refresh to try again! \n\n Got it in ${totalGuesses} guesses.`;
         buttonStop.remove();
         break;
       default:
         award.src = "/Unit03/assets/Participationmdpi.png";
         award.alt = "Participation prize";
-        results.innerText =
-          "Correct! But you must train harder to become a TRUE guesser! Refresh to try again!";
+        results.innerText = `Correct! But you must train harder to become a TRUE guesser! Refresh to try again! \n\n Got it in ${totalGuesses} guesses.`;
         buttonStop.remove();
         break;
     }
