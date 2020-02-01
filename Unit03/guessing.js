@@ -29,12 +29,12 @@ function evalGuess() {
     attempts.innerText = totalGuesses;
     //Function to switcher
     victorySwitch(totalGuesses);
-    let retryButton = document.createElement("button")
-    let buttonAdd = document.querySelector("#play")
-    retryButton.innerHTML = "Retry?"
-    buttonAdd.appendChild(retryButton)
+    let retryButton = document.createElement("button");
+    let buttonAdd = document.querySelector("#play");
+    retryButton.innerHTML = "Retry?";
+    buttonAdd.appendChild(retryButton);
     retryButton.addEventListener("click", () => {
-      document.location.reload(true)
+      document.location.reload(true);
     });
     //Conditional statements give hints and prevent out-of-range guesses
   } else if (gamerGuess < 1 || gamerGuess > 15) {

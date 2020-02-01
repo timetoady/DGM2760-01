@@ -138,22 +138,23 @@ input {
 }
 
 
-
-
-
 @media (max-width: 1024px) and (min-width: 601px) {
-    .gb1{
+    .gb1 {
         min-width: 22%;
-        
+
     }
+
     #gameBoard {
         margin: 0 auto;
 
     }
+
     #gameBoard h2 {
         font-size: 1.5rem;
     }
-    #gameBoard button, input {
+
+    #gameBoard button,
+    input {
         font-size: 1.3rem;
         width: 35.2% !important;
     }
@@ -161,26 +162,32 @@ input {
     #attempts {
         font-size: 3rem;
     }
+
     #feedback {
         font-size: 1rem;
     }
-    .gb2{
+
+    .gb2 {
         min-width: 20%;
     }
 }
 
 @media (max-width: 600px) {
-    .gb1{
+    .gb1 {
         min-width: 21%;
-        
+
     }
+
     #gameBoard {
         margin: 0 auto;
 
     }
-    #gameBoard h2, input {
+
+    #gameBoard h2,
+    input {
         font-size: 1rem;
     }
+
     #gameBoard button {
         font-size: .8rem;
         min-width: 0;
@@ -191,10 +198,12 @@ input {
     #attempts {
         font-size: 3rem;
     }
+
     #feedback {
         font-size: .5rem;
     }
-    .gb2{
+
+    .gb2 {
         min-width: 25.9%;
     }
 }
