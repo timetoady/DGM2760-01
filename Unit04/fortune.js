@@ -37,10 +37,21 @@ function getMonth() {
       return "December";
   }
 }
+//Additional variation to the defaul switch option of the fortune text
+var ObjectArray = [
+  "a cleaver.",
+  "a beaver.",
+  "a speed boat.",
+  "an enema kit.",
+  'three crazed chinchillas.',
+  "your mother-in-law's chest hair tweezers."
+];
+
+const painObject = ObjectArray[Math.floor(Math.random() * ObjectArray.length)];
 
 //Switch to provide fortune text
 function fortunePick() {
-  let fortuneNum = numberGen(6, 1);
+  let fortuneNum = numberGen(10, 1);
   switch (fortuneNum) {
     case 1:
       return "all men will fall before you.";
@@ -49,9 +60,13 @@ function fortunePick() {
     case 3:
       return "an audit of your finances will reveal some discrepancies in your significant other's spending account.";
     case 4:
-      return "beward talking rabbits, silk top hats, and following butterflies.";
+      return "beware talking rabbits, silk top hats, and following butterflies.";
     case 5:
       return "you will get up.";
+    case 6:
+      return "you will travel to a magical, far-away land. Cleveland.";
+    default:
+      return `you will have to get ${numberGen(37,3)} stitches from an unfortunate accident with ${painObject}`;
   }
 }
 
