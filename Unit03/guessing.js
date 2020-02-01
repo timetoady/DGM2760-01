@@ -20,15 +20,15 @@ let buttonStop = document.querySelector("#thebutton");
 //function to do guessing game
 function evalGuess() {
   gamerGuess = document.querySelector("#guess").value;
-
   const feedback = document.querySelector("#feedback");
   console.log(gamerGuess);
   console.log(`The correct number is ${number}`);
   if (gamerGuess == number) {
     totalGuesses++;
     attempts.innerText = totalGuesses;
-    //Function to switcher
+    //Reference switcher function
     victorySwitch(totalGuesses);
+    //Add retry button
     let retryButton = document.createElement("button");
     let buttonAdd = document.querySelector("#play");
     retryButton.innerHTML = "Retry?";

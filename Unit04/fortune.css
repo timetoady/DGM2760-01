@@ -1,0 +1,113 @@
+html {
+    max-width: 75rem;
+    margin: auto;
+}
+
+/* Header settings */
+header {
+    background-image: linear-gradient(#003f9233, #0202024d, transparent), url("/Unit04/assets/glassBall.jpg");
+    background-size: cover;
+    margin: auto;
+    padding: 2rem;
+    color: aliceblue;
+    box-shadow: 0px 10px 20px -5px rgba(0, 0, 0, .8);
+
+}
+
+header h1 {
+    margin-bottom: 0;
+    font-size: 3rem;
+
+}
+
+header h2 {
+    margin-top: 0;
+    color: aliceblue;
+    font-size: 2rem;
+}
+
+
+/* List settings */
+ul {
+    list-style-type: none;
+}
+
+ul li:before {
+    content: '';
+    display: inline-block;
+    height: 12px;
+    width: 10px;
+    background-size: 10px;
+    background-image: url("/Unit02/assets/checkedbox.png");
+    background-repeat: no-repeat;
+    margin-right: 5px;
+
+}
+
+/* Main and footer settings */
+
+main {
+    margin-left: 2%;
+}
+
+main h1 {
+    color: rgb(12, 25, 216);
+
+}
+
+main h2 {
+    color: #07276e;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+footer {
+    text-align: center;
+    color: white;
+    background-color: #004DD5;
+}
+
+/* Fortune settings */
+
+#fortune1 {
+    margin: 0 0 1rem 0;
+    font-size: 2rem;
+    color: rgb(182, 62, 7);
+    animation: fadeInUp 4s;
+}
+
+
+/* Quick animation copy for fade in text*/
+
+@-webkit-keyframes fadeInUp {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  .fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+  }
