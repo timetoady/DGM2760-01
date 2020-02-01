@@ -27,45 +27,15 @@ function evalGuess() {
   if (gamerGuess == number) {
     totalGuesses++;
     attempts.innerText = totalGuesses;
-    //Switch to give approprate message and award
-    switch (totalGuesses) {
-      case 1:
-        award.src = "/Unit03/assets/FirstPlacemdpi.png";
-        award.alt = "First place!";
-        results.innerText =
-          "Congradulations! You've managed to guess the correct number on the first try. Your exploits will go down in history, and bards will sing songs of your excellence forever. Consider yourself a hero.";
-        buttonStop.remove();
-        break;
-      case 2:
-      case 3:
-        award.src = "/Unit03/assets/FirstPlacemdpi.png";
-        award.alt = "First place!";
-        results.innerText = `Correct! You the Champ! \n\n Got it in ${totalGuesses} guesses.`;
-        buttonStop.remove();
-        break;
-      case 4:
-      case 5:
-      case 6:
-        award.src = "/Unit03/assets/2ndPlacemdpi.png";
-        award.alt = "Second place!";
-        results.innerText = `Correct! Well done. Just short of greatness. \n\n Got it in ${totalGuesses} guesses.`;
-        buttonStop.remove();
-        break;
-      case 7:
-      case 8:
-      case 9:
-        award.src = "/Unit03/assets/3rdPlacemdpi.png";
-        award.alt = "Third place!";
-        results.innerText = `Correct! But you can do better! Refresh to try again! \n\n Got it in ${totalGuesses} guesses.`;
-        buttonStop.remove();
-        break;
-      default:
-        award.src = "/Unit03/assets/Participationmdpi.png";
-        award.alt = "Participation prize";
-        results.innerText = `Correct! But you must train harder to become a TRUE guesser! Refresh to try again! \n\n Got it in ${totalGuesses} guesses.`;
-        buttonStop.remove();
-        break;
-    }
+    //Function to switcher
+    victorySwitch(totalGuesses);
+    let retryButton = document.createElement("button")
+    let buttonAdd = document.querySelector("#play")
+    retryButton.innerHTML = "Retry?"
+    buttonAdd.appendChild(retryButton)
+    retryButton.addEventListener("click", () => {
+      document.location.reload(true)
+    });
     //Conditional statements give hints and prevent out-of-range guesses
   } else if (gamerGuess < 1 || gamerGuess > 15) {
     results.innerText = "Please select a number between 1 and 15.";
@@ -79,5 +49,47 @@ function evalGuess() {
     attempts.innerText = totalGuesses;
   } else {
     console.log("I'm sorry, please try again.");
+  }
+}
+
+//Switch for different cases for victory
+function victorySwitch(totalGuesses) {
+  switch (totalGuesses) {
+    case 1:
+      award.src = "/Unit03/assets/FirstPlacemdpi.png";
+      award.alt = "First place!";
+      results.innerText =
+        "Congradulations! You've managed to guess the correct number on the first try. Your exploits will go down in history, and bards will sing songs of your excellence forever. Consider yourself a hero.";
+      buttonStop.remove();
+      break;
+    case 2:
+    case 3:
+      award.src = "/Unit03/assets/FirstPlacemdpi.png";
+      award.alt = "First place!";
+      results.innerText = `Correct! You the Champ! \n\n Got it in ${totalGuesses} guesses.`;
+      buttonStop.remove();
+      break;
+    case 4:
+    case 5:
+    case 6:
+      award.src = "/Unit03/assets/2ndPlacemdpi.png";
+      award.alt = "Second place!";
+      results.innerText = `Correct! Well done. Just short of greatness. \n\n Got it in ${totalGuesses} guesses.`;
+      buttonStop.remove();
+      break;
+    case 7:
+    case 8:
+    case 9:
+      award.src = "/Unit03/assets/3rdPlacemdpi.png";
+      award.alt = "Third place!";
+      results.innerText = `Correct! But you can do better! Refresh to try again! \n\n Got it in ${totalGuesses} guesses.`;
+      buttonStop.remove();
+      break;
+    default:
+      award.src = "/Unit03/assets/Participationmdpi.png";
+      award.alt = "Participation prize";
+      results.innerText = `Correct! But you must train harder to become a TRUE guesser! Refresh to try again! \n\n Got it in ${totalGuesses} guesses.`;
+      buttonStop.remove();
+      break;
   }
 }
