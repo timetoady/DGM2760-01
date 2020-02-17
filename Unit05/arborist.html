@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata|Montserrat&display=swap" rel="stylesheet">
+    <title>05 Arborist</title>
+    <link href="arborist.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://raw.github.com/daneden/animate.css/master/animate.css" />
+</head>
+
+<body>
+    <header>
+        <h1>The Arborist</h1>
+        <h2>Events and Arrays</h2>
+    </header>
+    <main>
+        <h1>The Arborist</h1>
+        <h2 id="greeting">Things learned:</h2>
+        <ul>
+            <li>Error checking on incoming values</li>
+            <li>Create and manipulate vlaues in an array</li>
+            <li>Impliment event handlers</li>
+            <li>Impliment event listeners</li>
+            <li>Something else too, probably</li>
+        </ul>
+        <section id="theBoard">
+
+            <div id="buttonBoard" onload="caseUpper()">
+                <h2>Adding Tree Practice</h2>
+                <button id="redwoodAdd">ADD A REDWOOD TREE TO THE END</button>
+                <button id="pearAdd">ADD A PEAR TREE TO THE START</button>
+
+                <h2>Removing Tree Practice</h2>
+                <button id="remove1st">REMOVE THE FIRST TREE</button>
+                <button id="remove2nd">REMOVE THE SECOND TREE DOWN</button>
+                <button id="removeLast">REMOVED THE LAST TREE</button>
+
+                <h2>Manipulate tree list</h2>
+                <button id="sortA">SORT THE TREES A TO Z'S</button>
+                <button id="makeLow">MAKE ALL TREES LOWERCASE</button>
+
+                <h2>Getting any tree from the list</h2>
+                <button id="treeThree">WHAT IS THE NAME OF TREE NUMBER THREE?</button>
+                <button id="treeFour">WHAT IS THE NAME OF TREE NUMBER FOUR?</button>
+                <button id="yourQuest">WHAT... IS YOUR QUEST?</button>
+            </div>
+            <div id="resultBoard">
+                <h2>The Tree List</h2>
+                <div id="displayResults"></div>
+
+                <h2>Error messages</h2>
+                <div id="errors"></div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; Adam Andreason 2020
+    </footer>
+    <script type="text/javascript" src="/Unit05/arborist.js"></script>
+</body>
+
+</html>
