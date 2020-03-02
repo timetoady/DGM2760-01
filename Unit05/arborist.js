@@ -35,7 +35,7 @@ document.querySelector("#redwoodAdd").onclick = () => {
     errorElement.textContent =
       "Okay, whoa. That is a lot of trees. You can probably stop now.";
   } else {
-    errorElement.textContent = ""
+    errorElement.textContent = "";
   }
 };
 
@@ -46,7 +46,7 @@ document.querySelector("#pearAdd").onclick = () => {
     errorElement.textContent =
       "Okay, whoa. That is a lot of trees. You can probably stop now.";
   } else {
-    errorElement.textContent = ""
+    errorElement.textContent = "";
   }
 };
 
@@ -54,7 +54,7 @@ document.querySelector("#remove1st").onclick = () => {
   if (trees.length > 0) {
     trees.shift("");
     listTrees();
-    errorElement.textContent = ""
+    errorElement.textContent = "";
   } else {
     errorElement.textContent = "Can't remove first tree, no trees present.";
     globalClick += 1;
@@ -66,7 +66,7 @@ document.querySelector("#remove2nd").onclick = () => {
   if (trees.length > 1) {
     trees.splice(1, 1);
     listTrees();
-    errorElement.textContent = ""
+    errorElement.textContent = "";
   } else if (trees.length <= 1) {
     errorElement.textContent =
       "Cannot remove second tree, too few trees present.";
@@ -79,7 +79,7 @@ document.querySelector("#removeLast").onclick = () => {
   if (trees.length > 0) {
     trees.pop();
     listTrees();
-    errorElement.textContent = ""
+    errorElement.textContent = "";
   } else {
     errorElement.textContent = "Cannot remove last tree, no trees present.";
     globalClick += 1;
@@ -90,7 +90,7 @@ document.querySelector("#removeLast").onclick = () => {
 document.querySelector("#sortA").onclick = () => {
   trees.sort();
   listTrees();
-  errorElement.textContent = ""
+  errorElement.textContent = "";
   if (trees.length == 1) {
     errorElement.textContent =
       "You've just sorted a list with a single element. Excellent work!";
@@ -100,7 +100,7 @@ document.querySelector("#sortA").onclick = () => {
     globalClick += 1;
     clickCount();
   } else {
-    errorElement.textContent = ""
+    errorElement.textContent = "";
   }
 };
 
@@ -111,7 +111,7 @@ document.querySelector("#makeLow").onclick = () => {
     trees.splice((cnt += 1), 1, tree);
   });
   listTrees();
-  errorElement.textContent = ""
+  errorElement.textContent = "";
   if (trees.length == 0) {
     errorElement.textContent = errorMessage;
     globalClick += 1;
@@ -120,24 +120,26 @@ document.querySelector("#makeLow").onclick = () => {
 };
 
 document.querySelector("#treeThree").onclick = () => {
-    if (trees.length >= 3){
-        errorElement.textContent = `The third tree is ${trees[2]}.`
-    } else {
-        errorElement.textContent = "The third tree has no name because three trees are not present."
-        globalClick += 1;
-        clickCount();
-    }
-}
+  if (trees.length >= 3) {
+    errorElement.textContent = `The third tree is ${trees[2]}.`;
+  } else {
+    errorElement.textContent =
+      "The third tree has no name because three trees are not present.";
+    globalClick += 1;
+    clickCount();
+  }
+};
 
 document.querySelector("#treeFour").onclick = () => {
-    if (trees.length >= 4){
-        errorElement.textContent = `The forth tree is ${trees[3]}.`
-    } else {
-        errorElement.textContent = "The forth tree has no name because there are not four trees."
-        globalClick += 1;
-        clickCount();
-    }
-}
+  if (trees.length >= 4) {
+    errorElement.textContent = `The forth tree is ${trees[3]}.`;
+  } else {
+    errorElement.textContent =
+      "The forth tree has no name because there are not four trees.";
+    globalClick += 1;
+    clickCount();
+  }
+};
 
 //Addtional fun stuff. A error message click counter, and an extra button!
 function clickCount() {
@@ -151,8 +153,9 @@ function clickCount() {
   } else if (globalClick >= 100) {
     errorElement.innerHTML = `Congratulations! You've now clicked to get error messages 100 times! I'll put a a counter below so you can just keep clicking and watching the number get bigger to your heart's content. <br><br> Clicks: ${globalClick}`;
   }
-};
+}
 
 document.querySelector("#yourQuest").onclick = () => {
-    errorElement.textContent = "To seek the Holy... well, not that. But see if you can find all 15 error messages! Some might take a bit effort to reveal."
-}
+  errorElement.textContent =
+    "To seek the Holy... well, not that. But see if you can find all 15 error messages! Some might take a bit effort to reveal.";
+};

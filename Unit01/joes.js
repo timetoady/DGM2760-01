@@ -1,4 +1,5 @@
 let yourName = prompt("Please give your first name: ");
+
 var Array1 = [
     'stranger',
     'friend',
@@ -7,6 +8,7 @@ var Array1 = [
 ]
 
 const noName = Array1[Math.floor(Math.random()*Array1.length)];
+
 function namer() {
   if (yourName !== null && yourName !== "") {
     return yourName;

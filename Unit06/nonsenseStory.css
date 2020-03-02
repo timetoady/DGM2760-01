@@ -1,0 +1,155 @@
+body {
+    margin: 0 auto;
+    font-family: 'Inconsolata', monospace;
+    
+}
+
+/* Header settings */
+header {
+    background-image: linear-gradient(#003f9233, #0202024d, transparent), url("/Unit06/assets/storybookHeader.jpg");
+    background-size: cover;
+    margin: auto;
+    padding: 1rem 1.2rem 6rem 1.5rem;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3rem;
+
+}
+
+header h2 {
+    margin-top: 0;
+    color: #f7f59e;
+    font-size: 2rem;
+}
+
+
+/* List settings settings */
+ul {
+    list-style-type: none;
+}
+
+ul li:before {
+    content: '';
+    display: inline-block;
+    height: 12px;
+    width: 10px;
+    background-size: 10px;
+    background-image: url("/Unit02/assets/checkedbox.png");
+    background-repeat: no-repeat;
+    margin-right: 5px;
+
+}
+
+
+/* Main settings */
+main {
+    margin-left: 2%;
+    
+}
+
+main h1 {
+    color: rgb(209, 20, 7);
+    
+
+}
+
+main h2 {
+    color: rgb(57, 4, 248); 
+    
+
+}
+
+/* Text input settings */
+
+#inputs{
+    display: flex;
+    justify-content: space-around;
+    margin: 0 0 0 .58%;
+    max-width: 96%;
+    
+}
+
+.boxes{
+min-width: calc(100% / 3);
+padding: 0 .5rem;
+
+}
+
+label{
+    display: block;
+}
+
+textarea{
+    max-width: 100%;
+    font-size: 1.1rem;
+
+}
+
+#nouns{
+    background-color: white;
+}
+
+#storyButton{
+    border-radius: .5rem;
+    padding: .5rem;
+    background-color: tan;
+    font-weight: 700;
+    margin-left: .3rem;
+}
+
+#theStory{
+    transition: ease-in .5s;
+    font-size: 1.5rem;
+    font-family: 'Crimson Text', ;
+}
+
+/* Footer settings */
+
+footer {
+    text-align: right;
+    color: white;
+    padding: 1% .5rem;
+}
+
+div#footerWrapper{
+    background-color: #000000;  
+    
+}
+
+/* Media query settings */
+
+@media (min-width: 1024px) {
+    body{
+        max-width: 75rem;
+    }
+    textarea{
+        min-width: 100%;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1000px) {
+
+    textarea{
+        padding: 0 5rem;
+        min-width: 33% !important;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+    header {
+        padding: 2rem .3rem;
+    }
+    #inputs{
+        display: block;
+        width: 100%;
+    }
+
+}
+

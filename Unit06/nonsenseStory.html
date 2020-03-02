@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata|Montserrat|Crimson+Text&display=swap" rel="stylesheet">
+    <title>06 Nonsense Story</title>
+    <link href="nonsenseStory.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Nonsense Story</h1>
+        <h2>Events and Arrays</h2>
+    </header>
+    <main>
+        <h1>NonSense Story</h1>
+        <h2 id="greeting">Things learned:</h2>
+        <ul>
+            <li>Extract text from HTML elements</li>
+            <li>Convert a string in to an array</li>
+            <li>Access elements of an array</li>
+            <li>Escape string characters</li>
+            <li>String Concantenation (which, when said, sounds like an incantation)</li>
+            <li>Change a string to lowercase (again, like in 05)</li>
+            <li>A little somethin' something'</li>
+        </ul>
+
+
+            <div id="inputs">
+
+                <div class="boxes">
+                    <label for="nouns">Seven NOUNS:</label>
+                    <textarea id="nouns" name="nouns" rows="8" cols="33"></textarea>
+                </div>
+
+                <div class="boxes">
+                    <label for="adjectives">Three ADJECTIVES:</label>
+                    <textarea id="adjectives" name="adjectives" rows="8" cols="33"></textarea>
+                </div>
+
+                <div class="boxes">
+                    <label for="verbs">Two VERBS:</label>
+                    <textarea id="verbs" name="verbs" rows="8" cols="33"></textarea>
+                </div>
+
+            </div>
+
+<button id="storyButton" onclick="tellStory()">TELL THE STORY</button>
+
+<div>
+    <p id="theStory"></p>
+</div>
+
+
+        </main>
+
+        <div id="footerWrapper">
+            <footer>
+                &copy; Adam Andreason 2020
+            </footer>
+        </div>
+
+        <script type="text/javascript" src="/Unit06/nonsenseStory.js"></script>
+</body>
+
+</html>
