@@ -1,0 +1,146 @@
+body {
+    margin: 0 auto;
+    font-family: "Roboto", monospace;
+    
+}
+
+/* Header settings */
+header {
+    background-image: linear-gradient(#ececec33, #f7f7f74d, transparent), url("/Unit07/assets/pizzaHeader.jpg");
+    background-size: cover;
+    margin: auto;
+    padding: 1rem 1.2rem 6rem 1.5rem;
+    color: red;
+    text-shadow: 1px 1px 2px black;
+
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3rem;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+header h2 {
+    margin-top: 0;
+    color: orange;
+    font-size: 2rem;
+}
+
+
+/* List settings settings */
+ul {
+    list-style-type: none;
+}
+
+ul li:before {
+    content: '';
+    display: inline-block;
+    height: 12px;
+    width: 10px;
+    background-size: 10px;
+    background-image: url("/Unit02/assets/checkedbox.png");
+    background-repeat: no-repeat;
+    margin-right: 5px;
+
+}
+
+
+/* Main settings */
+main {
+    margin-left: 2%;  
+}
+
+main a {
+    text-decoration: none;
+    color: black;
+}
+
+main h1 {
+    color: purple;
+    font-family: 'Poppins', sans-serif;
+}
+
+main h2 {
+    color: blue; 
+}
+
+main h3{
+    color: green;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: .2rem;
+}
+
+/* Pizza board settings */
+
+#pizzaBoard{
+    display:flex;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+}
+
+
+label{
+    margin-right: 1rem;
+}
+
+button{
+    color: #8fd129;
+    background-color: black;
+    cursor: pointer;
+    border-radius: .7rem;
+    padding: .5rem;
+    border: 2px dashed #8fd129;
+
+}
+
+/* Footer settings */
+
+footer {
+    text-align: right;
+    color: #8fd129;
+    padding: 1% .5rem;
+}
+
+div#footerWrapper{
+    background-color: #000000;  
+      
+}
+
+/* Media query settings */
+
+@media (min-width: 1024px) {
+    body{
+        max-width: 75rem;
+    }
+
+    #pizzaBoard div{
+        width: 50%;
+    }
+
+}
+
+@media (min-width: 601px) and (max-width: 1000px) {
+
+    textarea{
+        padding: 0 5rem;
+        min-width: 33% !important;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+    header {
+        padding: 2rem .3rem;
+    }
+    #pizzaBoard{
+        display: block;
+    }
+    label{
+        margin-right: .2rem;
+    }
+
+}
+
