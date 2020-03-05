@@ -1,7 +1,7 @@
 body {
     margin: 0 auto;
     font-family: "Roboto", monospace;
-    
+
 }
 
 /* Header settings */
@@ -49,7 +49,7 @@ ul li:before {
 
 /* Main settings */
 main {
-    margin-left: 2%;  
+    margin-left: 2%;
 }
 
 main a {
@@ -63,10 +63,10 @@ main h1 {
 }
 
 main h2 {
-    color: blue; 
+    color: blue;
 }
 
-main h3{
+main h3 {
     color: green;
     font-family: 'Poppins', sans-serif;
     margin-bottom: .2rem;
@@ -74,25 +74,34 @@ main h3{
 
 /* Pizza board settings */
 
-#pizzaBoard{
-    display:flex;
+#pizzaBoard {
+    display: flex;
     margin: 0 auto;
     margin-bottom: 5rem;
 }
 
 
-label{
+label {
     margin-right: 1rem;
 }
 
-button{
+button {
     color: #8fd129;
     background-color: black;
     cursor: pointer;
     border-radius: .7rem;
     padding: .5rem;
     border: 2px dashed #8fd129;
+    font-weight: 500;
 
+}
+
+button:hover {
+    background-color: #8fd129;
+    color: black;
+    border: 2px solid black;
+    font-style: oblique;
+    font-weight: 700;
 }
 
 /* Footer settings */
@@ -103,19 +112,19 @@ footer {
     padding: 1% .5rem;
 }
 
-div#footerWrapper{
-    background-color: #000000;  
-      
+div#footerWrapper {
+    background-color: #000000;
+
 }
 
 /* Media query settings */
 
 @media (min-width: 1024px) {
-    body{
+    body {
         max-width: 75rem;
     }
 
-    #pizzaBoard div{
+    #pizzaBoard div {
         width: 50%;
     }
 
@@ -123,7 +132,7 @@ div#footerWrapper{
 
 @media (min-width: 601px) and (max-width: 1000px) {
 
-    textarea{
+    textarea {
         padding: 0 5rem;
         min-width: 33% !important;
     }
@@ -135,12 +144,13 @@ div#footerWrapper{
     header {
         padding: 2rem .3rem;
     }
-    #pizzaBoard{
+
+    #pizzaBoard {
         display: block;
     }
-    label{
+
+    label {
         margin-right: .2rem;
     }
 
 }
-
