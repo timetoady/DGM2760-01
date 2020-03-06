@@ -26,9 +26,9 @@ const pizza = {
     if (pizza.size === 'small') {flour *= 1; cheese *= 1;} 
     if (pizza.size === 'large') {flour *= 2; cheese += 3; pounds *=2}
     if (pizza.size === 'one shell of a') {
-      flour *= 5 
+      flour *= 5; 
       cheese += 10;
-      pounds *=4}
+      pounds *= 4}
     message = `K, dude, with that, looks like ya gotta buy ${flour} cups flour, ${cheese} cups of cheese, and ${pounds} pounds each 'a ${pizza.topping.toString().replace(/,/g, " 'n ")}.`
     document.querySelector(".donnie").textContent = message;
   }
@@ -56,28 +56,6 @@ document
   .querySelector("#shell")
   .addEventListener("click", () => (pizza.size = "one shell of a"));
 
-//Toppings add and remove
-function toppingAdder(toppingID, toppingName) {
-  if (
-    toppingID.checked == true &&
-    pizza.topping.includes(toppingName) == false
-  ) {
-    pizza.topping.push(toppingName);
-  } else if (
-    toppingID.checked == false &&
-    pizza.topping.includes(toppingName) == true
-  ) {
-    toppingRemover(toppingName);
-  }
-}
-
-function toppingRemover(topp) {
-  const isTopping = element => element == topp;
-  let top = pizza.topping.findIndex(isTopping);
-  console.log(top);
-  pizza.topping.splice(top, 1);
-}
-
 //Topping listeners
 let pepp = document.querySelector("#pepperoni");
 pepp.addEventListener("click", () => {
@@ -99,10 +77,26 @@ ancho.addEventListener("click", () => {
   toppingAdder(ancho, "anchovies (blech)");
 });
 
-function sayTopping() {
-  console.log(pizza.topping);
-  //   console.log(typeof pizza.topping);
-  //   console.log(pizza.topping.includes("sausage"));
+//Toppings add and remove
+function toppingAdder(toppingID, toppingName) {
+  if (
+    toppingID.checked == true &&
+    pizza.topping.includes(toppingName) == false
+  ) {
+    pizza.topping.push(toppingName);
+  } else if (
+    toppingID.checked == false &&
+    pizza.topping.includes(toppingName) == true
+  ) {
+    toppingRemover(toppingName);
+  }
+}
+
+function toppingRemover(topp) {
+  const isTopping = element => element == topp;
+  let top = pizza.topping.findIndex(isTopping);
+  console.log(top);
+  pizza.topping.splice(top, 1);
 }
 
 //Buttons
