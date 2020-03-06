@@ -1,15 +1,39 @@
+let message;
+
+phraseArray = [
+  "K, so you got a ",
+  "Right, so it's a ",
+  "Sure thing, dude. We gotta ",
+  "Right, ya gotta "
+];
+
 const pizza = {
   crust: "thin",
   size: "small",
   topping: ["pepperoni"],
   readOrder: function() {
-    console.log("Here to read your order, dude!");
-    sayTopping();
+    const phraser = phraseArray[Math.floor(Math.random() * phraseArray.length)];
+    message = `${phraser} ${pizza.size} pizza with ${pizza.crust} crust and ${pizza.topping.toString().replace(/,/g, " 'n ")}... ${theWorks()}`;
+    let donnie = document.querySelector(".donnie");
+    donnie.textContent = message;
   },
-  sayList: function() {
-    console.log("List all ready to go!");
+  sayList: () => {
+    let flour = 1;
+    let cheese = 1;
+    let pounds = 1;
+    if (pizza.crust === 'thick') flour *= 2;
+    if (pizza.crust === 'totally tubular') flour *= 5;
+    if (pizza.size === 'small') {flour *= 1; cheese *= 1;} 
+    if (pizza.size === 'large') {flour *= 2; cheese += 3; pounds *=2}
+    if (pizza.size === 'one shell of a') {
+      flour *= 5 
+      cheese += 10;
+      pounds *=4}
+    message = `K, dude, with that, looks like ya gotta buy ${flour} cups flour, ${cheese} cups of cheese, and ${pounds} pounds each 'a ${pizza.topping.toString().replace(/,/g, " 'n ")}.`
+    document.querySelector(".donnie").textContent = message;
   }
-};
+}
+
 //Crust selector
 document
   .querySelector("#thin")
@@ -72,28 +96,25 @@ marsh.addEventListener("click", () => {
 
 let ancho = document.querySelector("#anchovies");
 ancho.addEventListener("click", () => {
-  toppingAdder(ancho, "anchovies");
+  toppingAdder(ancho, "anchovies (blech)");
 });
 
 function sayTopping() {
   console.log(pizza.topping);
-//   console.log(typeof pizza.topping);
-//   console.log(pizza.topping.includes("sausage"));
+  //   console.log(typeof pizza.topping);
+  //   console.log(pizza.topping.includes("sausage"));
 }
 
 //Buttons
-document
-  .querySelector("#readOrder")
-  .addEventListener("click", () => pizza.readOrder());
-document
-  .querySelector("#shopList")
-  .addEventListener("click", () => sayTopping());
+document.querySelector("#readOrder").addEventListener("click", pizza.readOrder);
+document.querySelector("#shopList").addEventListener("click", pizza.sayList);
 
-phraseArray = [
-  "K, so you got a ",
-  "Right, so it's a ",
-  "Sure thing, dude. We gotta ",
-  "Right, ya gotta "
-];
+//Fun stuff
 
-const phraser = phraseArray[Math.floor(Math.random() * phraseArray.length)];
+function theWorks() {
+  if (pepp.checked == true && saus.checked == true && marsh.checked == true && ancho.checked == true && pizza.crust == "totally tubular" && pizza.size == "one shell of a") {
+    return "Looks like the Works, dude!"
+  } else {
+    return "that it?"
+  }
+}
