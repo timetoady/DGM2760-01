@@ -1,0 +1,205 @@
+body {
+    margin: 0 auto;
+    font-family: "Roboto", monospace;
+
+}
+
+/* Header settings */
+header {
+    background-image: linear-gradient(#ffa6008c, #f0040427, transparent), url("/Unit08/assets/tombHeader.jpg");
+    background-size: cover;
+    margin: auto;
+    padding: 1rem 1.2rem 6rem 1.5rem;
+    color: rgb(9, 9, 160);
+    
+    
+
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3rem;
+    font-family: 'Poppins', sans-serif;
+    
+
+}
+
+header h2 {
+    margin-top: 0;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    font-size: 2rem;
+}
+
+
+/* List settings settings */
+ul {
+    list-style-type: none;
+}
+
+ul li:before {
+    content: '';
+    display: inline-block;
+    height: 12px;
+    width: 10px;
+    background-size: 10px;
+    background-image: url("/Unit02/assets/checkedbox.png");
+    background-repeat: no-repeat;
+    margin-right: 5px;
+
+}
+
+
+/* Main settings */
+main {
+    margin-left: 2%;
+    margin-bottom: 1rem;
+}
+
+main a {
+    text-decoration: none;
+    color: black;
+}
+
+main h1 {
+    color: rgb(9, 9, 160);
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 1px 1px 2px black;
+
+}
+
+main h2 {
+    color: red;
+    text-shadow: 1px 1px 2px black;
+
+}
+
+main h3 {
+    
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: .2rem;
+}
+
+/* Quiz settings */
+
+#stem{
+    width: 300px;
+    margin-left: 2rem;
+    background-color: rgb(9, 9, 160);
+    color: rgb(245, 140, 3);
+    padding: 1rem;
+}
+
+button{
+    width: 300px;
+    display: flex;
+    border-radius: 3px;
+    padding: .2rem;
+    margin-left: 4rem;
+    margin-bottom: .1rem;
+    background-color: rgb(245, 140, 3);
+    cursor: pointer;
+    color: rgb(9, 9, 160);
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+}
+
+button:hover{
+    background-color: rgb(9, 9, 160);
+    color: rgb(245, 140, 3);
+    transition: ease-in-out .3s;
+}
+
+#answer4{
+    margin-bottom: 1rem;
+}
+
+#feedback{
+    margin-left: 4rem;
+    padding: .2rem;
+}
+
+#winner {
+    color: rgb(245, 140, 3);
+    font-weight: 800;
+    margin-left: 4rem;
+    width: 300px;
+    padding: .2rem;
+    animation: flash linear 1s .1s 5;
+    animation: name duration timing-function delay iteration-count direction fill-mode;
+    
+}
+
+#funny {
+    position: relative;
+    margin-left: 4rem;
+    width: 300px;
+    padding: .2rem;
+    animation: fallOff 5s 1s 1;
+}
+
+@keyframes flash {
+	0% { color: rgb(245, 140, 3); } 
+	50% { color: rgb(9, 9, 160) } 
+	100% { color: rgb(245, 140, 3); }
+}
+
+@keyframes fallOff {
+    0% {right: 0; top:0; left: 0;} 
+    25% {transform: rotate(30deg); right: 50px; top: 10px}
+    50% { left: 100px; top: 500px} 
+    75% { transform: rotate(30deg); right: 100px; top: 500px}
+	100% {opacity: 0;}
+}
+
+/* Footer settings */
+
+footer {
+    text-align: right;
+    color: rgb(245, 140, 3);;
+    padding: 1% .5rem;
+}
+
+div#footerWrapper {
+    background-color: rgb(9, 9, 160);
+
+}
+
+/* Media query settings */
+
+@media (min-width: 1024px) {
+    body {
+        max-width: 75rem;
+    }
+
+    #pizzaBoard div {
+        width: 50%;
+    }
+
+}
+
+@media (min-width: 601px) and (max-width: 1000px) {
+
+    textarea {
+        padding: 0 5rem;
+        min-width: 33% !important;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+    header {
+        padding: 2rem .3rem;
+    }
+
+    #pizzaBoard {
+        display: block;
+    }
+
+    label {
+        margin-right: .2rem;
+    }
+
+}
