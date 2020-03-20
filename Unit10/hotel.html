@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link href="https://fonts.googleapis.com/css?family=Poppins|Roboto&display=swap" rel="stylesheet">
+        <title>10 Hotel</title>
+        <link href="hotel.css" rel="stylesheet">
+    </head>
+<body>
+    <header>
+        <h1>Hotel</h1>
+        <h2>JSON for the win</h2>
+    </header>
+<main>
+    <div id="toplist">
+    <h1>Hotel</h1>
+    <h2 id="greeting">Things practiced:</h2>
+    <ul>
+        <li>Create an external JSON file</li>
+        <li>Load the JSON file using Fetch API</li>
+        <li>How to use a <code>try...catch</code> block.</li>
+        <li>How to use an <code>aysnc..await</code> to make asynchronous function calls</li>
+        <li>How to retreaved and store resolved Promise data</li>
+        <li>Display data from the JSON file on the web page using three different buttons</li>
+        
+    </ul>
+</div>
+
+<h2>Select a Hotel</h2>
+
+<ul id="hotels">
+    <li><a href="#hotelName" id="marriott">Marriot Hotel Rooms</a></li>
+    <li><a href="#hotelName" id="sheraton">Sheraton Hotel Rooms</a></li>
+    <li><a href="#hotelName" id="hilton">Hilton Hotel Rooms</a></li>
+</ul>
+
+<h2 id="hotelName">Hotel</h2>
+
+<div id="listings">
+<h3>Address: <span id="address"></span></h3>
+<p>Number of Rooms: <span id="rooms"></span></p>
+<p>Gym Available: <span id="gym"></span></p>
+<p>Room Types: <span id="type"></span></p>
+</div>
+
+<img id="picture">
+
+</main>
+
+
+
+<div id="footerWrapper">
+    <footer>
+        &copy; Adam Andreason 2020
+    </footer>
+</div>
+
+    <script type="text/javascript" src="/Unit10/hotel.js"></script>
+</body>
+</html>

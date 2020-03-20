@@ -1,0 +1,180 @@
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0 auto;
+    font-family: "Roboto", monospace;
+
+}
+
+/* Header settings */
+header {
+    background-image: linear-gradient(#000000d5, #3a3a3a27, transparent), url("/Unit10/assets/hotelHeader.jpg");
+    background-size: cover;
+    margin: auto;
+    padding: 1rem 1.2rem 6rem 1.5rem;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3rem;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+header h2 {
+    margin-top: 0;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    font-size: 2rem;
+}
+
+
+/* List settings */
+#toplist ul {
+    list-style-type: none;
+}
+
+#toplist ul li:before {
+    content: '';
+    display: inline-block;
+    height: 12px;
+    width: 10px;
+    background-size: 10px;
+    background-image: url("/Unit02/assets/checkedbox.png");
+    background-repeat: no-repeat;
+    margin-right: 5px;
+
+}
+
+
+/* Main settings */
+main {
+    margin-left: 2%;
+    margin-bottom: 1rem;
+}
+
+main a {
+    text-decoration: none;
+    color: black;
+}
+
+main h1 {
+    color: #0909a0;
+    font-family: 'Poppins', sans-serif;
+    /* text-shadow: 1px 1px 2px black; */
+
+}
+
+main h2 {
+    color: #76B364;
+    text-shadow: 2px 1px 2px black;
+
+}
+
+main h3 {
+    
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: .2rem;
+}
+
+/* Hotel settings */
+
+#hotels { 
+    list-style-type: none;
+    display: flex;
+    
+}
+
+#hotels li{
+    padding: .3rem;
+    background-color: rgb(9, 9, 160);
+    margin-right: .2rem;
+}
+
+#hotels a {
+    color: white;
+    display: block;
+}
+
+#listings{
+    margin-left: 2%;
+}
+
+#listings p {
+    margin: 0 0 .2rem 1%;
+    background-color: rgb(9, 9, 160);
+    color: white;
+    max-width: 20%;
+    min-width: 190px;
+    padding: .7rem;
+    border-radius: 1rem 0 0 1rem;
+    
+}
+
+
+
+/* Footer settings */
+
+footer {
+    text-align: right;
+    color: #76B364;
+    padding: 1% .5rem;
+}
+
+div#footerWrapper {
+    background-color: rgb(9, 9, 160);
+
+}
+
+/* Media query settings */
+
+@media (min-width: 1024px) {
+    body {
+        max-width: 75rem;
+    }
+
+    #picture {
+        max-width: 33.333333%;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    textarea {
+        padding: 0 5rem;
+        min-width: 33% !important;
+    }
+
+    #picture {
+        max-width: 50%;
+    }
+}
+
+
+@media (max-width: 600px) {
+    header {
+        padding: 2rem .3rem;
+    }
+
+    #hotels { 
+        list-style-type: none;
+        display: block;
+        padding-left: 0;
+        
+    }
+
+    #hotels li{
+        margin-bottom: .2rem;
+    }
+    
+    #picture {
+        max-width: 96%;
+        margin-left: 1%;
+    }
+
+}

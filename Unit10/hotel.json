@@ -1,0 +1,32 @@
+{
+    "hotels": [{
+            "name": "Marriott",
+            "rooms": "75",
+            "gym": "Yes",
+            "roomTypes": ["King", "Queen", "Double"],
+            "address": "136 Hotel Way",
+            "picture": "hotelRoom1.jpg"
+        },
+        {
+            "name": "Sheraton",
+            "rooms": "23",
+            "gym": "No",
+            "roomTypes": ["King", "Queen", "Prince"],
+            "address": "555 That Street RD",
+            "picture": "hotelRoom2.jpg"
+        },
+        {
+            "name": "Hilton",
+            "rooms": "15",
+            "gym": "Yes",
+            "roomTypes": ["California King", "Double Queen", "Double-Double"],
+            "address": "123 Rich Guy LN",
+            "picture": "hotelRoom3.jpg"
+        }
+
+
+    ]
+
+
+
+}
