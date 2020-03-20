@@ -139,19 +139,20 @@ div#footerWrapper {
     }
 
     #picture {
-        max-width: 33.333333%;
+        max-width: 40%;
+        margin-left: 3%;
     }
 }
 
 @media (min-width: 601px) and (max-width: 1024px) {
 
-    textarea {
-        padding: 0 5rem;
-        min-width: 33% !important;
+    #listings p {
+        max-width: 60%;
     }
 
     #picture {
         max-width: 50%;
+        margin-left: 3%;
     }
 }
 
@@ -165,16 +166,25 @@ div#footerWrapper {
         list-style-type: none;
         display: block;
         padding-left: 0;
+        text-align: center;
         
     }
 
     #hotels li{
         margin-bottom: .2rem;
     }
+
+    #listings p {
+        max-width: 80%;
+    }
     
     #picture {
         max-width: 96%;
         margin-left: 1%;
+    }
+
+    #address {
+        font-size: 1rem;
     }
 
 }

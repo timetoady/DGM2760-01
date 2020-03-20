@@ -12,7 +12,7 @@
             "rooms": "23",
             "gym": "No",
             "roomTypes": ["King", "Queen", "Prince"],
-            "address": "555 That Street RD",
+            "address": "555 Thatstreet RD",
             "picture": "hotelRoom2.jpg"
         },
         {

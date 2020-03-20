@@ -9,11 +9,11 @@ async function getAPIData() {
   }
 }
 
-//Isolate hotel data in JSON from extranious info
+//Isolate hotel data in JSON from extranious metadata
 let hotelData = {};
 getAPIData().then(data => (hotelData = data));
 
-//Take info and transport to needed DOM area
+//Take hotel info and assign to needed DOM area
 function hotelInfo(event) {
   let hotelChoice = hotelData.hotels.find(hotel => {
     return event.target.id === hotel.name.toLowerCase();
