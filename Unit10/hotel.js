@@ -18,7 +18,6 @@ function hotelInfo(event) {
   let hotelChoice = hotelData.hotels.find(hotel => {
     return event.target.id === hotel.name.toLowerCase();
   });
-  console.log(hotelChoice);
   let hotelName = document.querySelector("#hotelName");
   hotelName.textContent = `${hotelChoice.name} Hotel`;
   hotelName.style.textDecoration = "underline";
