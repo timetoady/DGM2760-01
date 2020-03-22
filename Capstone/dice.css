@@ -1,0 +1,82 @@
+body {
+    margin: 0 auto;
+    font-family: "Roboto", monospace;
+
+}
+
+/* Header settings */
+header {
+    background-image: linear-gradient(#fdfdfd8c, #0408f027, transparent), url("/Capstone/assets/diceHeader.png");
+    background-size: cover;
+    margin: auto;
+    padding: 1rem 1.2rem 6rem 1.5rem;
+    color: rgb(9, 9, 160);
+    
+
+}
+
+main {
+    padding: 1rem;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3rem;
+    font-family: 'Poppins', sans-serif;
+    
+
+}
+
+header h2 {
+    margin-top: 0;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    font-size: 2rem;
+}
+
+button{
+    margin: 2rem;
+    background-color: rgb(9, 9, 160);
+    color: white;
+    padding: 1rem; 
+    border-radius: 1rem;
+}
+
+#topInfo{
+    margin-left: 2%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+#topInfo p {
+    margin: 0;
+}
+
+.messageBox {
+    max-width: 30rem;
+    border: 2px black solid;
+    padding: 1rem 3rem;
+    font-size: .5rem;
+    display: none;
+    margin-left: 1rem;
+}
+
+.totals {
+    display: none;
+    padding: 1rem;
+    border: 2px black solid;
+    margin-right: 2rem;
+
+}
+
+
+
+#intro {
+    max-width: 70%;
+}
+
+#gameBoard {
+    display: flex;
+    
+}

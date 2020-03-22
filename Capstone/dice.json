@@ -1,0 +1,38 @@
+{
+    "diceRolls": [{
+            "Name": "One",
+            "Value": "1",
+            "picture": "die1.jpg"
+        },
+        {
+            "Name": "Two",
+            "Value": "2",
+            "picture": "die2.jpg"
+        },
+        {
+            "Name": "Three",
+            "Value": "3",
+            "picture": "die3.jpg"
+        },
+        {
+            "Name": "Four",
+            "Value": "4",
+            "picture": "die4.jpg"
+        },
+        {
+            "Name": "Five",
+            "Value": "5",
+            "picture": "die6.jpg"
+        },
+
+        {
+            "Name": "Six",
+            "Value": "6",
+            "picture": "die6.jpg"
+        }
+
+    ]
+
+
+
+}
