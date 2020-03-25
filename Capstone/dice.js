@@ -141,6 +141,7 @@ yourRoll.textContent = "ROLL";
 oddevenWindow.appendChild(endTurn);
 oddevenWindow.appendChild(yourRoll);
 yourRoll.addEventListener("click", () => {
+  console.log(`yourRoll says the bet is ${currentBet}`)
   playerRoll(currentBet);
 });
 
@@ -187,14 +188,14 @@ function yourTurn() {
   if (turn === 1) {
     gameStart.remove();
     computerBet = oddEven();
+    message.textContent = `You go first! I bet ${computerBet}.`;
     currentBet = computerBet;
-    message.textContent = `You go first! I bet ${currentBet}.`;
     oddevenWindow.style.display = "block";
     runningTotals.style.display = "block";
     yourRoll.style.display = "block";
     } else {
-    message.textContent = `Your turn. I bet ${currentBet}.`;
-    computerBet = oddEven();
+      computerBet = oddEven();
+    message.textContent = `Your turn. I bet ${computerBet}.`;
     currentBet = computerBet;
     evenBet.style.display = "none";
     oddBet.style.display = "none";
