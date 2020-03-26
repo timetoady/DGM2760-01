@@ -17,6 +17,7 @@ header {
 
 main {
     padding: 1rem;
+    
 }
 
 header h1 {
@@ -58,12 +59,11 @@ button{
     padding: 1rem 3rem;
     font-size: .5rem;
     display: none;
-    margin-left: 1rem;
 }
 
 .totals {
     display: none;
-    padding: 1rem;
+    padding: .5rem 1rem;
     border: 2px black solid;
     margin-right: 2rem;
 
@@ -76,15 +76,47 @@ button{
 #gameBoard {
     display: flex;
     justify-content: space-between;
+    
+}
+
+#gameBoard h2 {
+    margin: 0;
+} 
+
+#gameBoard p {
+    margin:.2rem;
 }
 
 #status{
     min-height: 2rem;
-    transition: ease-in-out 2s;
     margin-left: 2%;
 }
 
 #gameBoard img {
     max-width: 100px;
     margin-left: 20px;
+}
+#gameBorder {
+    border: 2px black solid;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+@media (max-width: 600px) {
+#gameBoard {
+    display: block;
+}
+
+#intro{max-width: 96%;}
+
+button{
+    margin:0 auto;
+}
+.messageBox {padding: 1rem;}
+
+#gameBoard img {margin-left: 10px}
+
+.totals{
+    margin-right: 0;
+}
 }

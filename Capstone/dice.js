@@ -153,11 +153,14 @@ function goAgain(user) {
 //Running totals to display in the upper right
 let runningTotals = document.createElement("div");
 runningTotals.setAttribute("class", "totals");
+let totalTitle = document.createElement('h2');
+totalTitle.textContent = "Totals"
 let displayPlayerTotal = document.createElement("p");
 let displayCompTotal = document.createElement("p");
 displayPlayerTotal.textContent = `Player: ${arrSum(playerTotal)}`;
 displayCompTotal.textContent = `Computer: ${arrSum(computerTotal)}`;
 gameBoard.appendChild(runningTotals);
+runningTotals.appendChild(totalTitle);
 runningTotals.appendChild(displayPlayerTotal);
 runningTotals.appendChild(displayCompTotal);
 
