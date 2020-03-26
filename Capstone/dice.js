@@ -129,7 +129,7 @@ contButton.textContent = "Continue";
 contButton.addEventListener("click", () => {
   contButton.style.display = "none";
   updateInfo.textContent = "Player's turn to roll.";
-  // updateTotals();
+  updateTotals();
   turn++;
   game();
 });
@@ -221,26 +221,33 @@ function game() {
   } else if (arrSum(playerTotal) > 100 && arrSum(computerTotal) > 100) {
     if (arrSum(playerTotal) > arrSum(computerTotal)) {
       updateInfo.textContent = "YOU WIN!";
-      message.textContent = "Game over!";
       console.log("Player has won. All is right.");
-      oddevenWindow.remove();
+      endGame();
     } else {
       updateInfo.textContent = "Computer wins!";
-      message.textContent = "Game over!";
       console.log("Game over. Computer wins.");
-      oddevenWindow.remove();
+      endGame();
     }
   } else if (arrSum(playerTotal) > 100) {
     updateInfo.textContent = "YOU WIN!";
-    message.textContent = "Game over!";
     console.log("Player has won. All is right.");
-    oddevenWindow.remove();
+    endGame();
   } else if (arrSum(computerTotal) > 100) {
     updateInfo.textContent = "Computer wins!";
-    message.textContent = "Game over!";
     console.log("Game over. Computer wins.");
-    oddevenWindow.remove();
+    endGame();
   }
+}
+
+function endGame(){
+  oddevenWindow.remove();
+  showDice.remove();
+  let replay = document.createElement("button");
+  replay.textContent = "Play again?"
+  replay.addEventListener('click', () => {
+    location.reload();
+  })
+  gameBoard.appendChild(replay);
 }
 
 //youTurn function governs the player's turn, ie.e what happens on odd numbered turns.
