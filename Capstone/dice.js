@@ -349,6 +349,7 @@ function rollDice(user, bet) {
       yourRoll.style.display = "block";
   } else if (die1 === 1 && die2 === 1 && user == "computer") {
     message.textContent = `Rolled snake eyes, baby. I go again.`;
+    snakeHiss.play();
     updateInfo.textContent = `${user.charAt(0).toUpperCase() +
       user.slice(
         1
