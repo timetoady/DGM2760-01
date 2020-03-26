@@ -68,6 +68,14 @@ gameStart.textContent = "Let's Play!";
 var currentBet = [0];
 gameBoard.appendChild(gameStart);
 
+
+//Last action message window
+let statusWindow = document.querySelector('#status');
+let update = document.createElement("div");
+let updateInfo = document.createElement("p");
+statusWindow.appendChild(update);
+update.appendChild(updateInfo);
+
 //oddevenWindow ----the Odd, Even, Roll menu. When your turn, you roll. When Computer's turn, you pick odd or even.
 let oddevenWindow = document.createElement("div");
 let message = document.createElement("h2");
@@ -77,6 +85,35 @@ gameBoard.appendChild(oddevenWindow);
 gameBoard.appendChild(oddevenWindow);
 oddevenWindow.style.display = "none";
 
+//area where images of dice will be displayed
+let showDice = document.createElement('div');
+let firstDie = document.createElement('img');
+let secondDie = document.createElement('img');
+gameBoard.appendChild(showDice);
+showDice.appendChild(firstDie);
+showDice.appendChild(secondDie);
+
+function dieImgCall(number){
+  switch (number) {
+    case 1:
+      return "die1.jpg";
+    case 2:
+      return "die2.jpg";
+    case 3:
+      return "die3.jpg";
+    case 4:
+      return "die4.jpg";
+    case 5:
+      return "die5.jpg";
+    case 6:
+      return "die6.jpg";
+} 
+}
+//Sounds 
+let snakeHiss = new Audio ('/Capstone/assets/snakehiss1.mp3')
+let rollSound = new Audio ('/Capstone/assets/diceroll1.mp3')
+
+
 //End turn and Continue buttons to officialy switch turns
 let endTurn = document.createElement("button");
 endTurn.textContent = "End Turn";
@@ -84,8 +121,10 @@ endTurn.style.display = "none";
 endTurn.addEventListener("click", () => {
   endTurn.style.display = "none";
   yourRoll.style.display = "none";
-  updateInfo.textContent = "";
+  updateInfo.textContent = "Please select your bet.";
   updateTotals();
+  setTimeout(turnMessage(), 2000);
+  setTimeout(turnMessage(), 2000);
   turn++;
   game();
 });
@@ -93,23 +132,31 @@ let contButton = document.createElement("button");
 contButton.textContent = "Continue";
 contButton.addEventListener("click", () => {
   contButton.style.display = "none";
-  updateInfo.textContent = "";
+  updateInfo.textContent = "Press Continue to continue the game.";
   updateTotals();
+  setTimeout(turnMessage(), 2000);
+  setTimeout(turnMessage(), 2000);
   turn++;
   game();
 });
 oddevenWindow.appendChild(contButton);
 contButton.style.display = "none";
 
+function goAgain(user) {
+  if (user === "player"){
+    yourTurn();
+  }
+  else {computerTurn()}
+}
+
 //Running totals to display in the upper right
-let introArea = document.querySelector("#topInfo");
 let runningTotals = document.createElement("div");
 runningTotals.setAttribute("class", "totals");
 let displayPlayerTotal = document.createElement("p");
 let displayCompTotal = document.createElement("p");
 displayPlayerTotal.textContent = `Player: ${arrSum(playerTotal)}`;
 displayCompTotal.textContent = `Computer: ${arrSum(computerTotal)}`;
-introArea.appendChild(runningTotals);
+gameBoard.appendChild(runningTotals);
 runningTotals.appendChild(displayPlayerTotal);
 runningTotals.appendChild(displayCompTotal);
 
@@ -141,15 +188,13 @@ yourRoll.textContent = "ROLL";
 oddevenWindow.appendChild(endTurn);
 oddevenWindow.appendChild(yourRoll);
 yourRoll.addEventListener("click", () => {
-  console.log(`yourRoll says the bet is ${arrSum(currentBet)} and currentBet is ${currentBet}.`);
+  console.log(
+    `yourRoll says the bet is ${arrSum(currentBet)} and currentBet is ${currentBet}.`
+    );
   playerRoll(currentBet);
 });
 
-//Last action message window
-let update = document.createElement("div");
-let updateInfo = document.createElement("p");
-gameBoard.appendChild(update);
-update.appendChild(updateInfo);
+
 
 //Button to start game
 gameStart.addEventListener("click", () => {
@@ -166,6 +211,7 @@ function game() {
       playerTotal
     )}. Computer's total is: ${arrSum(computerTotal)}.`
   );
+  
   if (arrSum(playerTotal) < 100 && arrSum(computerTotal) < 100) {
     if (isEven(turn) === false) {
       console.log(`Turn ${turn}. Player's turn.`);
@@ -173,6 +219,18 @@ function game() {
     } else {
       console.log(`Turn ${turn}. Computer's turn.`);
       computerTurn();
+    }
+  } else if (arrSum(playerTotal) > 100 && arrSum(computerTotal) > 100) {
+    if (arrSum(playerTotal) > arrSum(computerTotal)) {
+      updateInfo.textContent = "YOU WIN!";
+      message.textContent = "Game over!";
+      console.log("Player has won. All is right.");
+      oddevenWindow.remove();
+    } else {
+      updateInfo.textContent = "Computer wins!";
+      message.textContent = "Game over!";
+      console.log("Game over. Computer wins.");
+      oddevenWindow.remove();
     }
   } else if (arrSum(playerTotal) > 100) {
     updateInfo.textContent = "YOU WIN!";
@@ -193,8 +251,8 @@ function yourTurn() {
     gameStart.remove();
     computerBet = oddEven();
     message.textContent = `You go first! I bet ${computerBet}.`;
-    console.log(`yourTurn says bet is ${computerBet}.`)
-    valueSplicer(computerBet);  
+    console.log(`yourTurn says bet is ${computerBet}.`);
+    valueSplicer(computerBet);
     oddevenWindow.style.display = "block";
     runningTotals.style.display = "block";
     yourRoll.style.display = "block";
@@ -202,7 +260,7 @@ function yourTurn() {
     computerBet = oddEven();
     message.textContent = `Your turn. I bet ${computerBet}.`;
     valueSplicer(computerBet);
-    console.log(`yourTurn says bet is ${computerBet}.`)
+    console.log(`yourTurn says bet is ${computerBet}.`);
     evenBet.style.display = "none";
     oddBet.style.display = "none";
     yourRoll.style.display = "block";
@@ -212,18 +270,21 @@ function yourTurn() {
 //Function that edits the currentBet so other functions can know if its even or odd
 function valueSplicer(bet) {
   if (bet === "even") {
-    currentBet.splice(0,1,2)
-    console.log(bet)
-    console.log(currentBet)
-    console.log(`valueSplicer says bet is ${bet} and current bet is ${currentBet}.`)
+    currentBet.splice(0, 1, 2);
+    console.log(bet);
+    console.log(currentBet);
+    console.log(
+      `valueSplicer says bet is ${bet} and current bet is ${currentBet}.`
+    );
   } else {
-    currentBet.splice(0,1,1)
-    console.log(bet)
-    console.log(currentBet)
-    console.log(`valueSplicer says bet is ${bet} and current bet is ${currentBet}.`)
+    currentBet.splice(0, 1, 1);
+    console.log(bet);
+    console.log(currentBet);
+    console.log(
+      `valueSplicer says bet is ${bet} and current bet is ${currentBet}.`
+    );
   }
 }
-
 
 function playerRoll(computerBet) {
   if (arrSum(computerBet) === 1) {
@@ -231,7 +292,7 @@ function playerRoll(computerBet) {
   } else {
     bet = "even";
   }
-  console.log(`Player roll says bet is ${bet}.`)
+  console.log(`Player roll says bet is ${bet}.`);
   thisRoll = rollDice("player", bet);
   die1 = thisRoll[0];
   die2 = thisRoll[1];
@@ -246,7 +307,42 @@ function rollDice(user, bet) {
   let die1 = numberGen(7, 1);
   let die2 = numberGen(7, 1);
   let rollSum = die1 + die2;
-  if (user === "player") {
+  rollSound.play();
+  //here we call json data to provide image
+  firstDie.src = `/Capstone/assets/${dieImgCall(die1)}`;
+  secondDie.src = `/Capstone/assets/${dieImgCall(die2)}`;
+  // die1 = 1;
+  // die2 = 1;
+  if (die1 === 1 && die2 === 1 && user == "player") {
+    endTurn.style.display = "none";
+    oddBet.style.display = "none";
+    evenBet.style.display = "none";
+    updateInfo.textContent = `${user.charAt(0).toUpperCase() +
+      user.slice(
+        1
+      )}'s roll is ${die1} and ${die2}. That's a total of ${rollSum} points.`;
+      computerBet = oddEven();
+      message.textContent = `You rolled snake eyes, so your turn again. I bet ${computerBet}.`;
+      snakeHiss.play()
+      addtoTotal("player", 2)
+      evenBet.style.display = "none";
+      oddBet.style.display = "none";
+      yourRoll.style.display = "block";
+  } else if (die1 === 1 && die2 === 1 && user == "computer") {
+    message.textContent = `Rolled snake eyes, baby. I go again.`;
+    updateInfo.textContent = `${user.charAt(0).toUpperCase() +
+      user.slice(
+        1
+      )}'s roll is ${die1} and ${die2}. That's a total of ${rollSum} points.`;
+    window.setTimeout(evenBet.style.display = "none", 2000);
+    endTurn.style.display = "none";
+    oddBet.style.display = "none";
+    evenBet.style.display = "none";
+    message.textContent = `Rolled snake eyes, so my turn again! Choose your bet.`;
+    addtoTotal("player", 2);
+    evenBet.style.display = "block";
+    oddBet.style.display = "block";
+  } else if (user === "player") {
     addtoTotal(user, rollSum);
     betCheck("computer", bet, rollSum);
     updateTotals();
@@ -265,16 +361,6 @@ function rollDice(user, bet) {
       )}'s roll is ${die1} and ${die2}. That's a total of ${rollSum} points.`;
     return [die1, die2, rollSum];
   }
-  // else if (die1 === 1 && die2 === 1 && user == "player"){
-  //   endTurn.style.display = "none"
-  //   yourRoll.style.display = "block"
-  //   message.textContent = `Rolled snake eyes. ${user} goes again.`;
-
-  // }else if (die1 === 1 && die2 === 1 && user == "computer") {
-  //   message.textContent = `Rolled snake eyes. ${user} goes again.`;
-  //   computerTurn();
-  // }
-  //Here, go to j.son to show pictures of both dice based on number rolled
 }
 
 //check if you or computer bet correctly, and award points accordingly
@@ -317,7 +403,6 @@ function betCheck(better, bet, roll) {
 //Computer roll
 function computerTurn() {
   message.textContent = `My turn. Choose your bet.`;
-  //In Even and Odd bet is the trigger for rolling the dice for the computer
   evenBet.style.display = "block";
   oddBet.style.display = "block";
 }
@@ -326,7 +411,7 @@ function turnMessage() {
   if (isEven(turn) === false) {
     message.textContent = "YOUR TURN";
   } else {
-    message.textContent = "COMPUTER'S TURN";
+    message.textContent = "COMPUTER'S TURN", 2000
   }
 }
 
@@ -337,6 +422,7 @@ function addtoTotal(user, amount) {
     computerTotal.push(amount);
   }
   updateLog();
+  updateTotals();
 }
 
 function updateTotals() {
@@ -352,6 +438,7 @@ function updateLog() {
 function checkTotal(user) {
   if (user > 100) return true;
 }
+
 
 // Optional function to just be called and add to total
 // function addToTotal(user, sum) {
