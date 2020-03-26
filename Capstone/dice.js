@@ -68,9 +68,8 @@ gameStart.textContent = "Let's Play!";
 var currentBet = [0];
 gameBoard.appendChild(gameStart);
 
-
 //Last action message window
-let statusWindow = document.querySelector('#status');
+let statusWindow = document.querySelector("#status");
 let update = document.createElement("div");
 let updateInfo = document.createElement("p");
 statusWindow.appendChild(update);
@@ -86,14 +85,14 @@ gameBoard.appendChild(oddevenWindow);
 oddevenWindow.style.display = "none";
 
 //area where images of dice will be displayed
-let showDice = document.createElement('div');
-let firstDie = document.createElement('img');
-let secondDie = document.createElement('img');
+let showDice = document.createElement("div");
+let firstDie = document.createElement("img");
+let secondDie = document.createElement("img");
 gameBoard.appendChild(showDice);
 showDice.appendChild(firstDie);
 showDice.appendChild(secondDie);
 
-function dieImgCall(number){
+function dieImgCall(number) {
   switch (number) {
     case 1:
       return "die1.jpg";
@@ -107,13 +106,11 @@ function dieImgCall(number){
       return "die5.jpg";
     case 6:
       return "die6.jpg";
-} 
+  }
 }
-//Sounds 
-let snakeHiss = new Audio ('/Capstone/assets/snakehiss1.mp3')
-let rollSound = new Audio ('/Capstone/assets/diceroll1.mp3')
-
-
+//Sounds
+let snakeHiss = new Audio("/Capstone/assets/snakehiss1.mp3");
+let rollSound = new Audio("/Capstone/assets/diceroll1.mp3");
 
 //End turn and Continue buttons to officialy switch turns
 let endTurn = document.createElement("button");
@@ -123,9 +120,7 @@ endTurn.addEventListener("click", () => {
   endTurn.style.display = "none";
   yourRoll.style.display = "none";
   updateInfo.textContent = "Please select your bet.";
-  updateTotals();
-  setTimeout(turnMessage(), 2000);
-  setTimeout(turnMessage(), 2000);
+  // updateTotals();
   turn++;
   game();
 });
@@ -133,10 +128,8 @@ let contButton = document.createElement("button");
 contButton.textContent = "Continue";
 contButton.addEventListener("click", () => {
   contButton.style.display = "none";
-  updateInfo.textContent = "Press Continue to continue the game.";
-  updateTotals();
-  setTimeout(turnMessage(), 2000);
-  setTimeout(turnMessage(), 2000);
+  updateInfo.textContent = "Player's turn to roll.";
+  // updateTotals();
   turn++;
   game();
 });
@@ -144,17 +137,18 @@ oddevenWindow.appendChild(contButton);
 contButton.style.display = "none";
 
 function goAgain(user) {
-  if (user === "player"){
+  if (user === "player") {
     yourTurn();
+  } else {
+    computerTurn();
   }
-  else {computerTurn()}
 }
 
 //Running totals to display in the upper right
 let runningTotals = document.createElement("div");
 runningTotals.setAttribute("class", "totals");
-let totalTitle = document.createElement('h2');
-totalTitle.textContent = "Totals"
+let totalTitle = document.createElement("h2");
+totalTitle.textContent = "Totals";
 let displayPlayerTotal = document.createElement("p");
 let displayCompTotal = document.createElement("p");
 displayPlayerTotal.textContent = `Player: ${arrSum(playerTotal)}`;
@@ -193,12 +187,12 @@ oddevenWindow.appendChild(endTurn);
 oddevenWindow.appendChild(yourRoll);
 yourRoll.addEventListener("click", () => {
   console.log(
-    `yourRoll says the bet is ${arrSum(currentBet)} and currentBet is ${currentBet}.`
-    );
+    `yourRoll says the bet is ${arrSum(
+      currentBet
+    )} and currentBet is ${currentBet}.`
+  );
   playerRoll(currentBet);
 });
-
-
 
 //Button to start game
 gameStart.addEventListener("click", () => {
@@ -215,7 +209,7 @@ function game() {
       playerTotal
     )}. Computer's total is: ${arrSum(computerTotal)}.`
   );
-  
+
   if (arrSum(playerTotal) < 100 && arrSum(computerTotal) < 100) {
     if (isEven(turn) === false) {
       console.log(`Turn ${turn}. Player's turn.`);
@@ -312,73 +306,48 @@ function rollDice(user, bet) {
   let die1 = numberGen(7, 1);
   let die2 = numberGen(7, 1);
   let rollSum = die1 + die2;
-  animate({
-    duration: 900,
-    timing(timeFraction) {
-      return timeFraction;
-    },
-    draw(progress) {
-      if (progress === 1) {
-        firstDie.src = `/Capstone/assets/${dieImgCall(die1)}`;
-        secondDie.src = `/Capstone/assets/${dieImgCall(die2)}`;
-      } else {
-        firstDie.src = `/Capstone/assets/die${numberGen(7,1)}.jpg`;
-        secondDie.src = `/Capstone/assets/die${numberGen(7,1)}.jpg`;}
-    }
-  })
-
-  //here we call json data to provide image
-      firstDie.src = `/Capstone/assets/${dieImgCall(die1)}`;
-      secondDie.src = `/Capstone/assets/${dieImgCall(die2)}`;
   // die1 = 1;
   // die2 = 1;
   if (die1 === 1 && die2 === 1 && user == "player") {
     endTurn.style.display = "none";
     oddBet.style.display = "none";
     evenBet.style.display = "none";
-    updateInfo.textContent = `${user.charAt(0).toUpperCase() +
-      user.slice(
-        1
-      )}'s roll is ${die1} and ${die2}. That's a total of ${rollSum} points.`;
-      computerBet = oddEven();
-      message.textContent = `You rolled snake eyes, so your turn again. I bet ${computerBet}.`;
-      snakeHiss.play()
-      addtoTotal("player", 2)
-      evenBet.style.display = "none";
-      oddBet.style.display = "none";
-      yourRoll.style.display = "block";
+    timedAnimate(user, die1, die2, rollSum);
+    message.textContent = `You rolled snake eyes, so your turn again. I bet ${computerBet}.`
+    computerBet = oddEven();
+    snakeHiss.play();
+    addtoTotal("player", 2);
+    evenBet.style.display = "none";
+    oddBet.style.display = "none";
+    yourRoll.style.display = "block";
   } else if (die1 === 1 && die2 === 1 && user == "computer") {
+    timedAnimate(user, die1, die2, rollSum);
     message.textContent = `Rolled snake eyes, baby. I go again.`;
     snakeHiss.play();
-    updateInfo.textContent = `${user.charAt(0).toUpperCase() +
-      user.slice(
-        1
-      )}'s roll is ${die1} and ${die2}. That's a total of ${rollSum} points.`;
-    window.setTimeout(evenBet.style.display = "none", 2000);
+    // updateBox(user, die1, die2, rollSum);
+    window.setTimeout((evenBet.style.display = "none"), 2000);
     contButton.style.display = "none";
     oddBet.style.display = "none";
     evenBet.style.display = "none";
-    message.textContent = `Rolled snake eyes, so my turn again! Choose your bet.`;
+    // message.textContent = `Rolled snake eyes, so my turn again! Choose your bet.`;
     addtoTotal("player", 2);
     evenBet.style.display = "block";
     oddBet.style.display = "block";
   } else if (user === "player") {
+    let say = "Test message here."
+    timedAnimate(user, die1, die2, rollSum);
     addtoTotal(user, rollSum);
     betCheck("computer", bet, rollSum);
-    updateTotals();
-    updateInfo.textContent = `${user.charAt(0).toUpperCase() +
-      user.slice(
-        1
-      )}'s roll is ${die1} and ${die2}. That's a total of ${rollSum} points.`;
+    // updateTotals();
+    // updateBox(user, die1, die2, rollSum);
     return [die1, die2, rollSum];
   } else if (user === "computer") {
+    let say = "Test message here."
+    timedAnimate(user, die1, die2, rollSum);
     addtoTotal(user, rollSum);
     betCheck("player", bet, rollSum);
-    updateTotals();
-    updateInfo.textContent = `${user.charAt(0).toUpperCase() +
-      user.slice(
-        1
-      )}'s roll is ${die1} and ${die2}. That's a total of ${rollSum} points.`;
+    // updateTotals();
+    // updateBox(user, die1, die2, rollSum);
     return [die1, die2, rollSum];
   }
 }
@@ -394,7 +363,7 @@ function betCheck(better, bet, roll) {
     console.log(`Computer wins the bet.`);
     addtoTotal("computer", 5);
     message.textContent = "Ha! I won the bet. 5 points for me.";
-    updateTotals();
+    // updateTotals();
   } else if (
     (checkRoll === true && bet === "even" && better === "player") ||
     (checkRoll === false && bet === "odd" && better === "player")
@@ -402,7 +371,7 @@ function betCheck(better, bet, roll) {
     console.log(`Player wins the bet.`);
     addtoTotal("player", 5);
     message.textContent = "You won the bet this time. 5 points.";
-    updateTotals();
+    // updateTotals();
   } else if (
     (checkRoll === true && bet === "odd" && better === "player") ||
     (checkRoll === false && bet === "even" && better === "player")
@@ -431,7 +400,7 @@ function turnMessage() {
   if (isEven(turn) === false) {
     message.textContent = "YOUR TURN";
   } else {
-    message.textContent = "COMPUTER'S TURN", 2000
+    (message.textContent = "COMPUTER'S TURN"), 2000;
   }
 }
 
@@ -441,13 +410,18 @@ function addtoTotal(user, amount) {
   } else {
     computerTotal.push(amount);
   }
-  updateLog();
-  updateTotals();
 }
 
 function updateTotals() {
   displayPlayerTotal.textContent = `Player: ${arrSum(playerTotal)}`;
   displayCompTotal.textContent = `Computer: ${arrSum(computerTotal)}`;
+}
+
+function updateBox(user, die1, die2, rollSum) {
+  updateInfo.textContent = `${user.charAt(0).toUpperCase() +
+    user.slice(
+      1
+    )}'s roll is ${die1} and ${die2}. That's a total of ${rollSum} points.`;
 }
 
 function updateLog() {
@@ -461,8 +435,7 @@ function checkTotal(user) {
 
 //animation for dice
 
-function animate({timing, draw, duration}) {
-
+function animate({ timing, draw, duration }) {
   let start = performance.now();
 
   requestAnimationFrame(function animate(time) {
@@ -471,19 +444,39 @@ function animate({timing, draw, duration}) {
     if (timeFraction > 1) timeFraction = 1;
 
     // calculate the current animation state
-    let progress = timing(timeFraction)
+    let progress = timing(timeFraction);
 
-    draw(progress);  // draw it
+    draw(progress); // draw it
 
     if (timeFraction < 1) {
       requestAnimationFrame(animate);
     }
-
   });
 }
 
-function draw(progress) {
-  
+function timedAnimate(user, die1, die2, rollSum) {
+  animate({
+    duration: 900,
+    timing(timeFraction) {
+      return timeFraction;
+    },
+    draw(progress) {
+      if (progress === 1) {
+        firstDie.src = `/Capstone/assets/${dieImgCall(die1)}`;
+        secondDie.src = `/Capstone/assets/${dieImgCall(die2)}`;
+        updateBox(user, die1, die2, rollSum);
+        message.style.display = "block";
+        updateLog();
+        updateTotals();
+      } else {
+        firstDie.src = `/Capstone/assets/die${numberGen(7, 1)}.jpg`;
+        secondDie.src = `/Capstone/assets/die${numberGen(7, 1)}.jpg`;
+        updateInfo.textContent = "Rolling...";
+        message.style.display = "none";
+      }
+    }
+  });
+
 }
 
 
