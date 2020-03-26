@@ -114,6 +114,7 @@ let snakeHiss = new Audio ('/Capstone/assets/snakehiss1.mp3')
 let rollSound = new Audio ('/Capstone/assets/diceroll1.mp3')
 
 
+
 //End turn and Continue buttons to officialy switch turns
 let endTurn = document.createElement("button");
 endTurn.textContent = "End Turn";
@@ -304,13 +305,28 @@ function playerRoll(computerBet) {
 
 //rollDice ----Dice roll rules called by roll button or computer function.
 function rollDice(user, bet) {
+  rollSound.play();
   let die1 = numberGen(7, 1);
   let die2 = numberGen(7, 1);
   let rollSum = die1 + die2;
-  rollSound.play();
+  animate({
+    duration: 900,
+    timing(timeFraction) {
+      return timeFraction;
+    },
+    draw(progress) {
+      if (progress === 1) {
+        firstDie.src = `/Capstone/assets/${dieImgCall(die1)}`;
+        secondDie.src = `/Capstone/assets/${dieImgCall(die2)}`;
+      } else {
+        firstDie.src = `/Capstone/assets/die${numberGen(7,1)}.jpg`;
+        secondDie.src = `/Capstone/assets/die${numberGen(7,1)}.jpg`;}
+    }
+  })
+
   //here we call json data to provide image
-  firstDie.src = `/Capstone/assets/${dieImgCall(die1)}`;
-  secondDie.src = `/Capstone/assets/${dieImgCall(die2)}`;
+      firstDie.src = `/Capstone/assets/${dieImgCall(die1)}`;
+      secondDie.src = `/Capstone/assets/${dieImgCall(die2)}`;
   // die1 = 1;
   // die2 = 1;
   if (die1 === 1 && die2 === 1 && user == "player") {
@@ -335,7 +351,7 @@ function rollDice(user, bet) {
         1
       )}'s roll is ${die1} and ${die2}. That's a total of ${rollSum} points.`;
     window.setTimeout(evenBet.style.display = "none", 2000);
-    endTurn.style.display = "none";
+    contButton.style.display = "none";
     oddBet.style.display = "none";
     evenBet.style.display = "none";
     message.textContent = `Rolled snake eyes, so my turn again! Choose your bet.`;
@@ -439,46 +455,33 @@ function checkTotal(user) {
   if (user > 100) return true;
 }
 
+//animation for dice
 
-// Optional function to just be called and add to total
-// function addToTotal(user, sum) {
-//   if (user === "player") {
-//     playerTotal.push(sum);
-//     displayPlayerTotal.textContent = `Player: ${arrSum(playerTotal)}`;
-//     console.log(`Player's total ${playerTotal}`);
-//   } else if (user === "computer") {
-//     computerTotal.push(sum);
-//     displayCompTotal.textContent = `Computer: ${arrSum(computerTotal)}`;
-//     console.log(`Computer's total ${computerTotal}`);
-//   }
-// }
+function animate({timing, draw, duration}) {
 
-// gameBoard.appendChild(roll);
-// roll.textContent = `Your roll is ${die1} and ${die2}. That's a total of ${rollSum} points.`;
-// playerPoints.textContent = `Total: ${playerTotal}`;
-// gameBoard.appendChild(playerPoints);
+  let start = performance.now();
+
+  requestAnimationFrame(function animate(time) {
+    // timeFraction goes from 0 to 1
+    let timeFraction = (time - start) / duration;
+    if (timeFraction > 1) timeFraction = 1;
+
+    // calculate the current animation state
+    let progress = timing(timeFraction)
+
+    draw(progress);  // draw it
+
+    if (timeFraction < 1) {
+      requestAnimationFrame(animate);
+    }
+
+  });
+}
+
+function draw(progress) {
+  
+}
+
 
 //Possible ideas: have it edit a text file to keep track of its global wins and losses?
 //Have serious mode where it admits defeat if you beat it three times in a row?
-
-// Sound play
-
-// let fallSound = new Audio ('/Unit08/assets/losingHorn.mp3')
-// fallSound.play()
-
-// //Async try...catch function to get JSON data
-
-// async function getAPIData(URL) {
-//     try {
-//       const response = await fetch(URL);
-//       const data = await response.json();
-//       return data;
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   }
-
-//   //Isolate hotel data in JSON from extranious metadata
-
-//   let theData = {};
-//   getAPIData().then(data => (theData = data));
