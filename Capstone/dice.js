@@ -120,7 +120,7 @@ endTurn.addEventListener("click", () => {
   endTurn.style.display = "none";
   yourRoll.style.display = "none";
   updateInfo.textContent = "Please select your bet.";
-  // updateTotals();
+  updateTotals();
   turn++;
   game();
 });
@@ -242,6 +242,7 @@ function game() {
 function endGame(){
   oddevenWindow.remove();
   showDice.remove();
+  gameBoard.style.justifycontent = "space-around";
   let replay = document.createElement("button");
   replay.textContent = "Play again?"
   replay.addEventListener('click', () => {
