@@ -99,7 +99,19 @@ button{
 #gameBorder {
     border: 2px black solid;
     padding: 1rem;
-    margin-top: 1rem;
+    margin: 1rem auto;
+    max-width: 50rem;
+    
+}
+
+#endBoard{
+    display: block;
+
+}
+
+#endBoard div{
+    margin-left: 1rem;
+    
 }
 
 @media (max-width: 600px) {
