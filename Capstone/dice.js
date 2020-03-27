@@ -74,12 +74,19 @@ var currentBet = [0];
 gameBoard.appendChild(gameStart);
 let topInfo = document.querySelector("#topInfo");
 
-//Last action message window
-let statusWindow = document.querySelector("#status");
-let update = document.createElement("div");
-let updateInfo = document.createElement("p");
-statusWindow.appendChild(update);
-update.appendChild(updateInfo);
+//Running totals to display in the upper right
+let runningTotals = document.createElement("div");
+runningTotals.setAttribute("class", "totals");
+let totalTitle = document.createElement("h2");
+totalTitle.textContent = "Totals";
+let displayPlayerTotal = document.createElement("p");
+let displayCompTotal = document.createElement("p");
+displayPlayerTotal.textContent = `Player: ${arrSum(playerTotal)}`;
+displayCompTotal.textContent = `Computer: ${arrSum(computerTotal)}`;
+gameBoard.appendChild(runningTotals);
+runningTotals.appendChild(totalTitle);
+runningTotals.appendChild(displayPlayerTotal);
+runningTotals.appendChild(displayCompTotal);
 
 //oddevenWindow ----the Odd, Even, Roll menu. When your turn, you roll. When Computer's turn, you pick odd or even.
 let oddevenWindow = document.createElement("div");
@@ -92,11 +99,20 @@ oddevenWindow.style.display = "none";
 
 //area where images of dice will be displayed
 let showDice = document.createElement("div");
+showDice.setAttribute("class", "diceStatus");
 let firstDie = document.createElement("img");
 let secondDie = document.createElement("img");
 gameBoard.appendChild(showDice);
 showDice.appendChild(firstDie);
 showDice.appendChild(secondDie);
+
+//Last action message window
+let statusWindow = document.querySelector("#status");
+let update = document.createElement("div");
+let updateInfo = document.createElement("p");
+showDice.appendChild(update);
+update.appendChild(updateInfo);
+
 
 function dieImgCall(number) {
   switch (number) {
@@ -150,19 +166,7 @@ function goAgain(user) {
   }
 }
 
-//Running totals to display in the upper right
-let runningTotals = document.createElement("div");
-runningTotals.setAttribute("class", "totals");
-let totalTitle = document.createElement("h2");
-totalTitle.textContent = "Totals";
-let displayPlayerTotal = document.createElement("p");
-let displayCompTotal = document.createElement("p");
-displayPlayerTotal.textContent = `Player: ${arrSum(playerTotal)}`;
-displayCompTotal.textContent = `Computer: ${arrSum(computerTotal)}`;
-gameBoard.appendChild(runningTotals);
-runningTotals.appendChild(totalTitle);
-runningTotals.appendChild(displayPlayerTotal);
-runningTotals.appendChild(displayCompTotal);
+
 
 //evenBet oddBet ---Settings for betting odd or even
 let oddBet = document.createElement("button");
@@ -224,28 +228,31 @@ function game() {
       console.log(`Turn ${turn}. Computer's turn.`);
       computerTurn();
     }
-  } else if (arrSum(playerTotal) > 100 && arrSum(computerTotal) > 100) {
+  } else if (arrSum(playerTotal) >= 100 && arrSum(computerTotal) >= 100) {
     if (arrSum(playerTotal) > arrSum(computerTotal)) {
       updateInfo.textContent = "YOU WIN!";
       console.log("Player has won. All is right.");
       lastWord("player");
       endGame();
+      
     } else {
       updateInfo.textContent = "Computer wins!";
       console.log("Game over. Computer wins.");
       lastWord("computer");
       endGame();
+      
     }
-  } else if (arrSum(playerTotal) > 100) {
+  } else if (arrSum(playerTotal) >= 100) {
     updateInfo.textContent = "YOU WIN!";
     console.log("Player has won. All is right.");
-    lastWord("player");
     endGame();
-  } else if (arrSum(computerTotal) > 100) {
+    lastWord("player");
+  } else if (arrSum(computerTotal) >= 100) {
     updateInfo.textContent = "Computer wins!";
     console.log("Game over. Computer wins.");
     lastWord("computer");
     endGame();
+    
   }
 }
 
@@ -253,13 +260,14 @@ function game() {
 function endGame() {
   oddevenWindow.remove();
   showDice.remove();
-  gameBoard.setAttribute("id", "#endBoard");
+  let gameBorder = document.querySelector(".gameBorder");
+  gameBorder.setAttribute("class", ".endBoard");
   let replay = document.createElement("button");
   replay.textContent = "Play again?";
   replay.addEventListener("click", () => {
     location.reload();
   });
-  gameBoard.appendChild(replay);
+  gameBorder.appendChild(replay);
 }
 
 //youTurn function governs the player's turn, i.e. what happens on odd numbered turns.
@@ -549,7 +557,8 @@ let goodCompRoll = [
   "Boom, baby.",
   "You could cook an egg on me, cuz I am HOT!",
   "Mmm mmm. So, SO good.",
-  "I like it a lot."
+  "I like it a lot.",
+  "Boom said the lady."
 ];
 
 let badCompRoll = [
@@ -557,9 +566,11 @@ let badCompRoll = [
   "Fine. Just you wait.",
   "My hand slipped. Reroll? No?",
   "Hey, me on a bad roll is like you on a great one.",
-  "@#$%! And I mean it!",
+  "Oh, @#$%! You gotta be kidding me!",
   "Hey kid, don't breath so close to me, you're throwing off my mojo.",
-  "Okay, I admit it, that just sucked."
+  "Okay, I admit it, that just sucked.",
+  "...sigh.",
+  "I'm just keeping you in the game, son. Making it a game."
 ];
 
 let winQuote = [
@@ -586,7 +597,8 @@ let loseQuote = [
   "INCON-- INCONS-- NOT POSSIBLE! How could I lose?!",
   "ARRRRR....! Fine. Fine. You win. There, I said it.",
   "YOU--! THAT--! IT--! ...Oh, fine. FINE. But you're STILL ugly!",
-  "NOOOOOOOOOOOOOOO!"
+  "NOOOOOOOOOOOOOOO!",
+  "Welp, I'm done."
 ];
 
 let playerSnake = [
@@ -652,10 +664,10 @@ function snark(user, sum) {
 function snake(user) {
   if (user === "player") {
     let words = arrayRandomPick(playerSnake);
-    topInfo.textContent = words;
+    return words;
   } else {
     let words = arrayRandomPick(compSnake);
-    topInfo.textContent = words;
+    return words;
   }
 }
 
