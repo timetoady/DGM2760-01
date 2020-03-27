@@ -73,6 +73,9 @@ gameStart.textContent = "Let's Play!";
 var currentBet = [0];
 gameBoard.appendChild(gameStart);
 let topInfo = document.querySelector("#topInfo");
+var allButtons = document.querySelectorAll("button");
+
+
 
 //Running totals to display in the upper right
 let runningTotals = document.createElement("div");
@@ -110,6 +113,7 @@ showDice.appendChild(secondDie);
 let statusWindow = document.querySelector("#status");
 let update = document.createElement("div");
 let updateInfo = document.createElement("p");
+updateInfo.textContent = "Ready to play!"
 showDice.appendChild(update);
 update.appendChild(updateInfo);
 
@@ -230,12 +234,14 @@ function game() {
     }
   } else if (arrSum(playerTotal) >= 100 && arrSum(computerTotal) >= 100) {
     if (arrSum(playerTotal) > arrSum(computerTotal)) {
+      statusWindow.appendChild(updateInfo);
       updateInfo.textContent = "YOU WIN!";
       console.log("Player has won. All is right.");
       lastWord("player");
       endGame();
       
     } else {
+      statusWindow.appendChild(updateInfo);
       updateInfo.textContent = "Computer wins!";
       console.log("Game over. Computer wins.");
       lastWord("computer");
@@ -243,11 +249,13 @@ function game() {
       
     }
   } else if (arrSum(playerTotal) >= 100) {
+    statusWindow.appendChild(updateInfo);
     updateInfo.textContent = "YOU WIN!";
     console.log("Player has won. All is right.");
     endGame();
     lastWord("player");
   } else if (arrSum(computerTotal) >= 100) {
+    statusWindow.appendChild(updateInfo);
     updateInfo.textContent = "Computer wins!";
     console.log("Game over. Computer wins.");
     lastWord("computer");
@@ -473,6 +481,8 @@ function animate({ timing, draw, duration }) {
   });
 }
 
+
+
 //Function that takes dice and user and animated roll and display of info
 function timedAnimate(user, die1, die2, rollSum, compMessage) {
   animate({
@@ -482,6 +492,7 @@ function timedAnimate(user, die1, die2, rollSum, compMessage) {
     },
     draw(progress) {
       if (progress === 1) {
+        
         firstDie.src = `/Capstone/assets/${dieImgCall(die1)}`;
         secondDie.src = `/Capstone/assets/${dieImgCall(die2)}`;
         updateBox(user, die1, die2, rollSum);
@@ -489,11 +500,25 @@ function timedAnimate(user, die1, die2, rollSum, compMessage) {
         topInfo.textContent = compMessage;
         updateLog();
         updateTotals();
+        if (user === "computer") {
+          contButton.style.display = "block";
+        } else {
+          endTurn.style.display = "block";
+        }
+
+        
       } else {
         firstDie.src = `/Capstone/assets/die${numberGen(7, 1)}.jpg`;
         secondDie.src = `/Capstone/assets/die${numberGen(7, 1)}.jpg`;
         updateInfo.textContent = "Rolling...";
         message.style.display = "none";
+        contButton.style.display = "none";
+        endTurn.style.display = "none";
+        
+        
+        
+        
+        
       }
     }
   });
@@ -527,7 +552,7 @@ let greatRoll = [
   "Son of a--",
   "Congrats. What, do you want a party or something?",
   "Stop that, will you?!",
-  "Oh, really? Come one, give me a break...",
+  "Oh, really? Come on, give me a break...",
   "Well, ain't you a lucky, lucky, sucky duck."
 ];
 
