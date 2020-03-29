@@ -40,9 +40,11 @@ header h2 {
 button{
     background-color: rgb(9, 9, 160);
     color: white;
-    padding: 1rem; 
+    text-align: center;
+    padding: 1rem 2rem; 
     border-radius: 1rem;
-    margin-bottom: .2rem;
+    margin-bottom: .8rem;
+    width: 150px;
 }
 
 #greeting{
@@ -162,7 +164,8 @@ button{
 #intro{max-width: 98%;}
 
 button{
-    margin:0 auto;
+    margin: .3rem auto;
+    padding: 1rem 2rem;
 }
 
 #startButton button {
@@ -192,7 +195,7 @@ button{
 }
 
 .messageBox {
-    height: 140px;
+    height: 150px;
 }
 
 .messageBox h2 {

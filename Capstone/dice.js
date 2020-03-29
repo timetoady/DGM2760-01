@@ -142,7 +142,7 @@ let rollSound = new Audio("/Capstone/assets/diceroll1.mp3");
 
 //End turn and Continue buttons to officialy switch turns
 let endTurn = document.createElement("button");
-endTurn.textContent = "End Turn";
+endTurn.textContent = "END TURN";
 endTurn.style.display = "none";
 endTurn.addEventListener("click", () => {
   endTurn.style.display = "none";
@@ -153,7 +153,7 @@ endTurn.addEventListener("click", () => {
   game();
 });
 let contButton = document.createElement("button");
-contButton.textContent = "Continue";
+contButton.textContent = "CONTINUE";
 contButton.addEventListener("click", () => {
   contButton.style.display = "none";
   updateInfo.textContent = "Player's turn to roll.";
@@ -176,7 +176,7 @@ function goAgain(user) {
 
 //evenBet oddBet ---Settings for betting odd or even
 let oddBet = document.createElement("button");
-oddBet.textContent = "Odd";
+oddBet.textContent = "ODD";
 oddBet.addEventListener("click", () => {
   evenBet.style.display = "none";
   oddBet.style.display = "none";
@@ -184,7 +184,7 @@ oddBet.addEventListener("click", () => {
   rollDice("computer", "odd");
 });
 let evenBet = document.createElement("button");
-evenBet.textContent = "Even";
+evenBet.textContent = "EVEN";
 evenBet.addEventListener("click", () => {
   evenBet.style.display = "none";
   oddBet.style.display = "none";
@@ -273,7 +273,7 @@ function endGame() {
   let gameBorder = document.querySelector(".gameBorder");
   gameBorder.setAttribute("class", ".endBoard");
   let replay = document.createElement("button");
-  replay.textContent = "Play again?";
+  replay.textContent = "PLAY AGAIN?";
   replay.addEventListener("click", () => {
     location.reload();
   });
