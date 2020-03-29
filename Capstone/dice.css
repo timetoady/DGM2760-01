@@ -184,7 +184,7 @@ button{
 
 #topInfo{
     margin-left: 2%;
-
+    margin-bottom: 0;
     
 }
 
@@ -212,4 +212,11 @@ button{
     margin-right: 0;
     margin-bottom: 1rem;
 }
+}
+
+@media (max-width: 321px) {
+    img{
+        width: 80px;
+    }
+
 }

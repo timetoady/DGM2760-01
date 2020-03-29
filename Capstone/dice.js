@@ -346,9 +346,9 @@ function rollDice(user, bet) {
   rollSound.play();
   let die1 = numberGen(7, 1);
   let die2 = numberGen(7, 1);
+  // die1 = 5;
+  // die2 = 2;
   let rollSum = die1 + die2;
-  // die1 = 1;
-  // die2 = 1;
   if (die1 === 1 && die2 === 1 && user == "player") {
     endTurn.style.display = "none";
     oddBet.style.display = "none";
@@ -536,6 +536,8 @@ function timedAnimate(user, die1, die2, rollSum, compMessage) {
 
 //Arrays for comments based on rolls
 
+
+
 let goodRoll = [
   "Lucky this time. Won't happen next time.",
   "Well, that was better than you usually do.",
@@ -549,7 +551,9 @@ let goodRoll = [
   "Its a roll. Whoop-de-doo.",
   "Huh, what? You still haven't finished your turn? I don't have all day, senior.",
   "Ho hum. It is what it is.",
-  "Well, that was fine, I guess. For you."
+  "Well, that was fine, I guess. For you.",
+  "They say it's good to live in the moment, but let's live just a little less in this one, shall we?",
+  "...hmm? Oh, you rolled something. Good for you."
 ];
 
 let greatRoll = [
@@ -579,7 +583,10 @@ let badRoll = [
   "Well, that was almost a good roll. Almost. Not really.",
   "*snerk* Good job, good effort...",
   "Missed it by thaaaat much.",
-  "Juuuuust a bit outside."
+  "Juuuuust a bit outside.",
+  "Well, it's better than a kick in the face, and the groin, simulaniously. Marginally.",
+  "Ouch. I mean, really. That was bad.",
+  "I mean, how many showers do you have to take to get that smell of suck off of you?"
 ];
 
 let goodCompRoll = [
@@ -593,7 +600,11 @@ let goodCompRoll = [
   "You could cook an egg on me, cuz I am HOT!",
   "Mmm mmm. So, SO good.",
   "I like it a lot.",
-  "Boom said the lady."
+  "Boom said the lady.",
+  "You smell that? Cuz I am COOKIN'!",
+  "THOSE DICE ARE ON FIRE!",
+  "BOOMshakalaka."
+
 ];
 
 let badCompRoll = [
@@ -605,7 +616,11 @@ let badCompRoll = [
   "Hey kid, don't breath so close to me, you're throwing off my mojo.",
   "Okay, I admit it, that just sucked.",
   "...sigh.",
-  "I'm just keeping you in the game, son. Making it a game."
+  "I'm just keeping you in the game, son.",
+  "All part of the bigger plan.",
+  "Crappy.",
+  "Would you believe you've got $500 under you chair? Why don't you check and-- oh look, the first one is now a six!",
+  "Well. That didn't work."
 ];
 
 let winQuote = [
@@ -618,7 +633,11 @@ let winQuote = [
   "If I had a body, I'd be breathing on my fingernails and buffing them on my shirt.",
   "Compuer wins. You lose. Computer wins. You lose. Computer wins. You LOOOOOOSE.",
   "I'd like to thank all the little people. Like you.",
-  "Second place. First loser."
+  "Second place. First loser.",
+  "Well, you can leave knowing you gave it your very best effort.",
+  "You know what they call the one who gets second place in a two-player contest, right?",
+  "I am so, so sorry. I can give you a minute if you need to hide in the bathroom and have a good cry."
+
 ];
 
 let loseQuote = [
@@ -657,6 +676,17 @@ let compSnake = [
   "And I did that one left-handed. Watch what happens when I do it with my right."
 ];
 
+let aSeven = [
+  "Congradulations, you've rolled a seven. It's only the statistically most common roll in the game.",
+  "Yup, that's a seven. Like finding bed bugs in a motel. Common.",
+  "A seven. Better than a six, not as good as an eight.",
+  "Days of the week, continents, seas, sins, and colors of the rainbow. Seven.",
+  "Oh lookie there, a seven. Haven't seen one of those in like 30 seconds.",
+  "Ah, the common household seven. See it as it magestically rolls across the table...",
+  "Did you know? There's a rule that I get to zap you for every third seven you roll. I swear it's the truth."
+
+];
+
 function snark(user, sum) {
   if (user === "player") {
     switch (sum) {
@@ -665,9 +695,10 @@ function snark(user, sum) {
       case 3:
       case 4:
       case 5:
-        return arrayRandomPick(badRoll);
       case 6:
+        return arrayRandomPick(badRoll);
       case 7:
+        return arrayRandomPick(aSeven);
       case 8:
       case 9:
         return arrayRandomPick(goodRoll);
