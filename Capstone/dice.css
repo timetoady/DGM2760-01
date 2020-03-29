@@ -191,8 +191,13 @@ button{
     
 }
 
+.messageBox {
+    height: 140px;
+}
+
 .messageBox h2 {
     padding-bottom: .5rem;
+    
 }
 
 #gameBoard img {
