@@ -212,6 +212,10 @@ button{
     margin-right: 0;
     margin-bottom: 1rem;
 }
+.totals p {
+    margin-left: 0;
+    font-size: 1rem !important;
+}
 }
 
 @media (max-width: 321px) {
@@ -219,4 +223,14 @@ button{
         width: 80px;
     }
 
+}
+
+@media (max-width: 770px){
+    .totals {
+        padding: .5rem;
+    }
+    .totals p {
+        margin-left: 0;
+        font-size: .7rem;
+    }
 }
