@@ -17,7 +17,8 @@ header {
 
 main {
     padding: 1rem;
-    max-width: 60rem;;
+    max-width: 60rem;
+    margin: 0 auto;
     
 }
 
@@ -44,10 +45,14 @@ button{
     margin-bottom: .2rem;
 }
 
+#greeting{
+    max-width: 90%;
+    margin: 1rem auto;
+}
+
 #topInfo{
     margin-left: 13%;
-
-    
+  
 }
 
 .diceStatus {
@@ -93,6 +98,11 @@ button{
 
 #intro {
     max-width: 70%;
+    
+}
+
+#topInfo {
+    margin-bottom: 2rem;
 }
 
 #theGame {
@@ -110,6 +120,12 @@ button{
 #startButton {
     margin: 0 auto;
     text-align: center;
+    
+}
+
+#startButton button {
+    width: 20%;
+    font-size: 1.5rem;
 }
 
 #gameBoard img {
@@ -148,6 +164,12 @@ button{
 button{
     margin:0 auto;
 }
+
+#startButton button {
+    width: 80%;
+    font-size: 1rem;
+}
+
 .messageBox {
     padding: 1rem;
     text-align: center;

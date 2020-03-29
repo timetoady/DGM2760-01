@@ -71,7 +71,7 @@ let gameBoard = document.querySelector("#gameBoard");
 let startArea = document.querySelector("#startButton")
 let gameStart = document.createElement("button");
 let theGame = document.querySelector("#theGame")
-gameStart.textContent = "Let's Play!";
+gameStart.textContent = "LET'S PLAY!";
 var currentBet = [0];
 startArea.appendChild(gameStart);
 let topInfo = document.querySelector("#topInfo");
