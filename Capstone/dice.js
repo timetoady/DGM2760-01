@@ -68,10 +68,12 @@ var playerTotal = [0];
 var computerTotal = [0];
 let turn = 1;
 let gameBoard = document.querySelector("#gameBoard");
+let startArea = document.querySelector("#startButton")
 let gameStart = document.createElement("button");
+let theGame = document.querySelector("#theGame")
 gameStart.textContent = "Let's Play!";
 var currentBet = [0];
-gameBoard.appendChild(gameStart);
+startArea.appendChild(gameStart);
 let topInfo = document.querySelector("#topInfo");
 var allButtons = document.querySelectorAll("button");
 
@@ -282,6 +284,8 @@ function endGame() {
 function yourTurn() {
   if (turn === 1) {
     gameStart.remove();
+    theGame.style.display = "block"
+    topInfo.textContent = "Alright, let's start the game. Since I'm nice, I'll let you go first. Roll."
     challenge.style.display = "none";
     computerBet = oddEven();
     message.textContent = `You go first! I bet ${computerBet}.`;
@@ -500,7 +504,13 @@ function timedAnimate(user, die1, die2, rollSum, compMessage) {
         topInfo.textContent = compMessage;
         updateLog();
         updateTotals();
-        if (user === "computer") {
+        if (die1 === 1 && die2 === 1){
+          if (user === "computer") {
+            contButton.style.display = "none";
+          } else {
+            endTurn.style.display = "none";
+          }
+        } else if (user === "computer") {
           contButton.style.display = "block";
         } else {
           endTurn.style.display = "block";

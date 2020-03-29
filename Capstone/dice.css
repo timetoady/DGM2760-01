@@ -17,6 +17,7 @@ header {
 
 main {
     padding: 1rem;
+    max-width: 60rem;;
     
 }
 
@@ -94,18 +95,22 @@ button{
     max-width: 70%;
 }
 
+#theGame {
+    display: none;
+}
+
 #gameBoard {
-    display: flex;
-    
-    
-    
+    display: flex;    
 }
 
 #gameBoard h2 {
     margin: 0;
 } 
 
-
+#startButton {
+    margin: 0 auto;
+    text-align: center;
+}
 
 #gameBoard img {
     max-width: 100px;
