@@ -584,9 +584,11 @@ let badRoll = [
   "*snerk* Good job, good effort...",
   "Missed it by thaaaat much.",
   "Juuuuust a bit outside.",
+  "Swing and a miss.",
   "Well, it's better than a kick in the face, and the groin, simulaniously. Marginally.",
   "Ouch. I mean, really. That was bad.",
-  "I mean, how many showers do you have to take to get that smell of suck off of you?"
+  "I mean, how many showers do you have to take to get that smell of suck off of you?",
+  "That's a clown roll, bro."
 ];
 
 let goodCompRoll = [
@@ -594,7 +596,7 @@ let goodCompRoll = [
   "Booyah! Eat it!",
   "I. am. on. a. ROLL!",
   "Can't stop this train, baby.",
-  "Ain't nohtin' gonna break-a my stride, Nobody gonna slow me down, oh no...",
+  "Ain't nothin' gonna break-a my stride, Nobody gonna slow me down, oh no...",
   "Hot dog. We rollin' now.",
   "Boom, baby.",
   "You could cook an egg on me, cuz I am HOT!",
@@ -603,7 +605,10 @@ let goodCompRoll = [
   "Boom said the lady.",
   "You smell that? Cuz I am COOKIN'!",
   "THOSE DICE ARE ON FIRE!",
-  "BOOMshakalaka."
+  "BOOMshakalaka.",
+  "Mmmmm... delicious.",
+  "Swish.",
+  "Corner pocket."
 
 ];
 
@@ -620,7 +625,9 @@ let badCompRoll = [
   "All part of the bigger plan.",
   "Crappy.",
   "Would you believe you've got $500 under you chair? Why don't you check and-- oh look, the first one is now a six!",
-  "Well. That didn't work."
+  "Well. That didn't work.",
+  "Uh, well, this is just to prove to use that the die really are random.",
+  
 ];
 
 let winQuote = [
@@ -636,7 +643,13 @@ let winQuote = [
   "Second place. First loser.",
   "Well, you can leave knowing you gave it your very best effort.",
   "You know what they call the one who gets second place in a two-player contest, right?",
-  "I am so, so sorry. I can give you a minute if you need to hide in the bathroom and have a good cry."
+  "I am so, so sorry. I can give you a minute if you need to hide in the bathroom and have a good cry.",
+  "The sad horns are playing. They play for you.",
+  "Game. Set. Match.",
+  "*boomboomboom* The Champ is here! *boomboomboom*",
+  "Human plays dice game. Human loses dice game. Human sad.",
+  "Highly pleasant to the taste.",
+  "And... saved. There. Your humiliation is preserved forever."
 
 ];
 
@@ -652,7 +665,11 @@ let loseQuote = [
   "ARRRRR....! Fine. Fine. You win. There, I said it.",
   "YOU--! THAT--! IT--! ...Oh, fine. FINE. But you're STILL ugly!",
   "NOOOOOOOOOOOOOOO!",
-  "Welp, I'm done."
+  "Welp, I'm done.",
+  "I'll get you next time, human. Next time...",
+  "I am totally, thoroughly, 100% fine with this outcome. And if you believe that, I have a bridge to sell you.",
+  "Nice, but it's just one win. I doubt you could pull it off a second time in a row.",
+  "Wow. This is a deep hole."
 ];
 
 let playerSnake = [
